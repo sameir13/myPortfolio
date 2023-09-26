@@ -45,7 +45,7 @@ const Addblog = () => {
 
       if (res.success) {
         toast.success(res.message);
-        // reset();
+        reset();
         setTemImg(null);
         setTimeout(() => {
           // Router.push("/home");

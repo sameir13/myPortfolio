@@ -1,6 +1,8 @@
 import React from "react";
 import { blogfetch } from "@/hooks/queryfetchblogs";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import {
   Table,
@@ -9,14 +11,13 @@ import {
   TableBody,
   TableRow,
   TableCell,
-  getKeyValue,
-  Radio,
+  Button,
 } from "@nextui-org/react";
 import axios from "axios";
 
 export default function App() {
   var [selectedKey, setkey] = useState([]);
-  var [check, setcheck] = useState(false);
+  var [checks, setcheck] = useState(false);
 
   const handleSelect = (i) => {
     var id = i;
@@ -32,13 +33,28 @@ export default function App() {
     }
   };
 
-  const del = async (id) => {
-    var res = await axios.delete(`api/blog/${id}`);
-    if (res.data.success) {
-      toast.success(res.data.message);
+  const del = async (arr) => {
+    if (arr.length > 0) {
+      arr.map(async (v) => {
+        console.log(v);
+        var res = await axios.delete(`api/blog/${v}`);
+        if (res.data.success) {
+          toast.success(res.data.message);
+        }
+      });
+    }
+    toast.error("Please select item to Delete");
+  };
+
+  const checkin = () => {
+    if (checks == true) {
+      setcheck(false);
+    } else {
+      setcheck(true);
     }
   };
-  const { isLoading, error, data } = blogfetch();
+
+  const { isLoading, error, data, isFetched } = blogfetch();
 
   if (isLoading) return <p className="text-white">Loading....</p>;
 
@@ -46,35 +62,58 @@ export default function App() {
 
   return (
     <>
-      <div className="border">
-        {selectedKey.length > 0 ? "yess" : null}
-        <i class="bx bxs-trash-alt" onChange={del([...selectedKey])}></i>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+      <div className="w-full grid place-items-center h-80 ">
+        <h2 className="text-white text-6xl font-extrabold">BLOG LIST</h2>
       </div>
+      <div className="my-3 flex justify-end px-4 gap-4">
+        <Button onClick={() => checkin()}>
+          <i class="bx bxs-select-multiple"></i>
+          Select All
+        </Button>
+        <Button onClick={() => del(selectedKey)} color="danger">
+          <i class="bx bxs-trash-alt"></i>
+          Delete
+        </Button>
+      </div>
+
       <Table aria-label="Controlled table example with dynamic content">
         <TableHeader>
-          <TableColumn>
-            <input type="checkbox" name="" />
-          </TableColumn>
-          <TableColumn>Title</TableColumn>
           <TableColumn>Action</TableColumn>
+          <TableColumn>Title</TableColumn>
+          <TableColumn>Author</TableColumn>
+          <TableColumn></TableColumn>
         </TableHeader>
         <TableBody items={data.message}>
           {data?.message?.map((v, i) => (
             <TableRow key={i}>
               <TableCell>
-                <fieldset>
-                  <input
-                    type="checkbox"
-                    id="check"
-                    capture
-                    onChange={(e) => (
-                      handleSelect(v._id), setcheck(e.target.checked)
-                    )}
-                  />
-                </fieldset>
+                <input
+                  type="checkbox"
+                  id="check"
+                  onChange={(e) => {
+                    handleSelect(v.slug);
+                  }}
+                />
               </TableCell>
-              <TableCell>{v.title}</TableCell>
-              <TableCell>{v.title}</TableCell>
+              <TableCell className="line-clamp-2">{v.title}</TableCell>
+              <TableCell >{v.authorname}</TableCell>
+              <TableCell className="text-right">
+                <Button color="secondary">
+                  <i class="bx bxs-edit-alt"></i>
+                </Button>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

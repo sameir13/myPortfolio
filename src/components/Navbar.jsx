@@ -25,7 +25,7 @@ export default function App() {
   ];
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-[#ffffff7a]">
+    <Navbar onMenuOpenChange={setIsMenuOpen} className="backdrop-blur bg-[#ffffff3a]">
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -40,7 +40,7 @@ export default function App() {
         {menuItems.map((v, i) => (
           <NavbarItem>
             <Links
-              className={`text-gray-600 ${
+              className={`text-white ${
                 router == v.link ? " text-gray-500 font-bold" : null
               } `}
               href={v.link}
@@ -53,7 +53,7 @@ export default function App() {
       <NavbarContent justify="end">
         <NavbarItem>
           <Button as={Link} color="warning" href="#" variant="flat">
-            Sign Up
+            Login
           </Button>
         </NavbarItem>
       </NavbarContent>

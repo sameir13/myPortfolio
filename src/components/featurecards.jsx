@@ -4,7 +4,6 @@ import Link from "next/link";
 import {
   Card,
   CardHeader,
-  CardBody,
   CardFooter,
   Image,
   Button,
@@ -19,6 +18,7 @@ export default function App() {
   return (
     <div className="max-w-[1200px] m-auto gap-2 grid grid-cols-12 grid-rows-2">
       {data?.message?.slice(0, 3).map((v, i) => (
+        <Link className="col-span-12 sm:col-span-4 h-[300px]" href={`/blogs/${v.slug}`}>       
         <Card className="col-span-12 sm:col-span-4 h-[300px]">
           <CardHeader className="absolute z-10 top-1 flex-col !items-start">
             <h4 className="text-white font-medium text-large">{v.title}</h4>
@@ -27,9 +27,10 @@ export default function App() {
             removeWrapper
             alt="Card background"
             className="z-0 w-full h-full object-cover"
-            src="https://images.unsplash.com/photo-1488372759477-a7f4aa078cb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+            src={v.blogimg}
           />
         </Card>
+        </Link>
       ))}
       <Card
         isFooterBlurred
@@ -39,15 +40,15 @@ export default function App() {
           removeWrapper
           alt="Card example background"
           className="z-0 w-full h-full scale-125 -translate-y-6 object-cover"
-          src="https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80"
+          src={data?.message?.[3].blogimg}
         />
         <CardFooter className="absolute bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
           <div>
-            <h4 className="text-white font-medium text-large">
+            <h4 className="text-white font-medium text-large line-clamp-1">
               {data?.message?.[3].title}
             </h4>
           </div>
-          <Button className="text-tiny" color="primary" radius="full" size="sm">
+          <Button className="text-tiny" color="primary" size="sm">
           <Link href={`/blogs/${data.message[3].slug}`}>Read More</Link>
           </Button>
         </CardFooter>
@@ -60,7 +61,7 @@ export default function App() {
           removeWrapper
           alt="Relaxing app background"
           className="z-0 w-full h-full object-cover"
-          src="https://images.unsplash.com/photo-1603201101485-e232d22ad18b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
+          src={data?.message?.[4].blogimg}
         />
         <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
           <div className="flex flex-grow gap-2 items-center">
@@ -70,12 +71,12 @@ export default function App() {
               src="/images/breathing-app-icon.jpeg"
             />
             <div className="flex flex-col">
-              <h4 className="text-white font-medium text-large">
+              <h4 className="text-white font-medium text-large line-clamp-1">
                 {data?.message?.[4].title}
               </h4>
             </div>
           </div>
-          <Button radius="full" size="sm">
+          <Button size="sm">
           <Link href={`/blogs/${data.message[4].slug}`}>Read More</Link>
           </Button>
         </CardFooter>

@@ -10,7 +10,7 @@ const home = () => {
         </div>
         <div className="max-w-[1200px] m-auto  my-5 px-4 ">
           <h3 className="font-semibold text-3xl mb-5">Featured </h3>
-          {/* <Featurecards /> */}
+          <Featurecards />
         </div>
         <div className="max-w-[1200px] m-auto my-5 py-6 px-4 ">
           <h3 className="font-semibold text-3xl mb-5">Latest News</h3>
