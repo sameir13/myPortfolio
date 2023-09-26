@@ -26,30 +26,22 @@ export default function App() {
                 src={v.blogimg}
                 width={270}
               />
-              {console.log(v.blogimg)}
             </CardHeader>
             <CardBody className="overflow-visible py-2">
-              <div className="flex justify-between mb-2">
+              <div className="flex justify-between mb-3">
                 <small className="text-default-500">{v.authorname}</small>
                 <small className="text-default-500">
                   {new Date().toDateString(v.createdAt)}
                 </small>
               </div>
-              <h4 className="font-bold text-large text-clip line-clamp-2">
+              <h4 className="font-bold text-large text-clip line-clamp-2 leading-tight mb-2">
                 {v.title}
               </h4>
-              <p></p>
-              {/* <div
-                
-                dangerouslySetInnerHTML={createMarkup()}
-              >
-                {v.description}
-              </div> */}
               <div
                 className="text-tiny uppercase font-normal text-clip line-clamp-3"
                 dangerouslySetInnerHTML={createMarkup(v.description)}
               />
-              <Link href={`/blogs/${v.slug}`}>
+              <Link href={`/blogs/${v.slug}`} >
                 <Button className="mt-5">Read More</Button>
               </Link>
             </CardBody>

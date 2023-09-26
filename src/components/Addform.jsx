@@ -33,7 +33,6 @@ const Addblog = () => {
   const submitForm = async (e) => {
     const imageUrl = await UploadImageToCloudinary();
     e.blogimg = imageUrl;
-    console.log(e);
     if (imageUrl) {
       var res = await fetch("/api/blog", {
         body: JSON.stringify(e),
@@ -118,7 +117,6 @@ const Addblog = () => {
                   placeholder="Author Name"
                   {...register("authorname")}
                 />
-
               </div>
               <div>
                 <Select

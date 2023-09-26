@@ -1,13 +1,48 @@
 import { useRouter } from "next/router";
 import { useQuery } from "@tanstack/react-query";
-import Cards from "@/components/card";
+import { Card } from "@nextui-org/react";
+
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
 
 const singleblog = () => {
+  const router = useRouter();
+  const slug = router?.query?.slug;
+
+  const [comment, setcomment] = useState({
+    comment: "",
+    username: "",
+  });
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setcomment({ ...comment, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await axios.put(`/api/blog/${slug}?comments=POST`, {
+        ...comment,
+      });
+
+      if (res) {
+        toast.success("Comment Added");
+        router.push(`/blogs/${slug}`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   function createMarkup(c) {
     return { __html: c };
   }
-  const router = useRouter();
-  const slug = router?.query?.slug;
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["repoData", slug],
@@ -18,8 +53,21 @@ const singleblog = () => {
   if (isLoading) return <p className="text-white">Loading....</p>;
 
   if (error) return <p className="text-white">Error {error.message} </p>;
+
   return (
     <div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <main class="pt-8 pb-16 lg:pt-16 lg:pb-24 antialiased">
         <div class="flex justify-between px-4 mx-auto max-w-screen-xl">
           <article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
@@ -58,10 +106,26 @@ const singleblog = () => {
             <section class="not-format mt-5">
               <div class="flex justify-between items-center mb-6">
                 <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
-                  Discussion (20)
+                  ({data?.message?.comments.length}) Discussion
                 </h2>
               </div>
-              <form class="mb-6">
+
+              <form class="mb-6" onSubmit={handleSubmit}>
+                <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                  <label for="username" class="sr-only">
+                    Your comment
+                  </label>
+                  <input
+                    id="username"
+                    rows="6"
+                    onChange={handleChange}
+                    name="username"
+                    value={comment.username}
+                    class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
+                    placeholder="Write your username"
+                    required
+                  ></input>
+                </div>
                 <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
                   <label for="comment" class="sr-only">
                     Your comment
@@ -69,6 +133,9 @@ const singleblog = () => {
                   <textarea
                     id="comment"
                     rows="6"
+                    onChange={handleChange}
+                    name="comment"
+                    value={comment.comment}
                     class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
                     placeholder="Write a comment..."
                     required
@@ -81,116 +148,44 @@ const singleblog = () => {
                   Post comment
                 </button>
               </form>
-              <article class="p-6 mb-6 text-base bg-white rounded-lg dark:bg-gray-900 border">
-                <footer class="flex justify-between items-center mb-2">
-                  <div class="flex items-center">
-                    <p class="inline-flex items-center mr-3 font-semibold text-sm text-gray-900 dark:text-white">
-                      <img
-                        class="mr-2 w-6 h-6 rounded-full"
-                        src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
-                        alt="Michael Gough"
-                      />
-                      Guest
-                    </p>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">
-                      <time
-                        pubdate
-                        datetime="2022-02-08"
-                        title="February 8th, 2022"
-                      >
-                        Feb. 8, 2022
-                      </time>
-                    </p>
-                  </div>
-                  <button
-                    id="dropdownComment1Button"
-                    data-dropdown-toggle="dropdownComment1"
-                    class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:text-gray-400 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                    type="button"
+
+              {data?.message?.comments
+                ?.sort()
+                .reverse()
+                .slice(0, 4)
+                .map((v, i) => (
+                  <Card
+                    key={i}
+                    class="p-6 mb-6 text-base bg-white rounded-lg dark:bg-gray-900 border"
                   >
-                    <svg
-                      class="w-4 h-4"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 16 3"
-                    >
-                      <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
-                    </svg>
-                    <span class="sr-only">Comment settings</span>
-                  </button>
-                  <div
-                    id="dropdownComment1"
-                    class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
-                  >
-                    <ul
-                      class="py-1 text-sm text-gray-700 dark:text-gray-200"
-                      aria-labelledby="dropdownMenuIconHorizontalButton"
-                    >
-                      <li>
-                        <a
-                          href="#"
-                          class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >
-                          Edit
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >
-                          Remove
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >
-                          Report
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </footer>
-                <p>
-                  Very straight-to-point article. Really worth time reading.
-                  Thank you! But tools are just the instruments for the UX
-                  designers. The knowledge of the design tools are as important
-                  as the creation of the design strategy.
-                </p>
-                <div class="flex items-center mt-4 space-x-4">
-                  <button
-                    type="button"
-                    class="flex items-center font-medium text-sm text-gray-500 hover:underline dark:text-gray-400"
-                  >
-                    <svg
-                      class="mr-1.5 w-3 h-3"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 20 18"
-                    >
-                      <path d="M18 0H2a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h2v4a1 1 0 0 0 1.707.707L10.414 13H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5 4h2a1 1 0 1 1 0 2h-2a1 1 0 1 1 0-2ZM5 4h5a1 1 0 1 1 0 2H5a1 1 0 0 1 0-2Zm2 5H5a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Zm9 0h-6a1 1 0 0 1 0-2h6a1 1 0 1 1 0 2Z" />
-                    </svg>
-                    Reply
-                  </button>
-                </div>
-              </article>
+                    <footer class="flex justify-between items-center mb-2">
+                      <div class="flex items-center">
+                        <p class="inline-flex items-center mr-3 font-semibold text-sm text-gray-900 dark:text-white">
+                          <img
+                            class="mr-2 w-6 h-6 rounded-full"
+                            src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+                            alt="Michael Gough"
+                          />
+                          {v.username}
+                        </p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                          <time
+                            pubdate
+                            datetime="2022-02-08"
+                            title="February 8th, 2022"
+                          >
+                            {new Date().toDateString(v.createdAt)}
+                          </time>
+                        </p>
+                      </div>
+                    </footer>
+                    <p>{v.comment}</p>
+                  </Card>
+                ))}
             </section>
           </article>
         </div>
       </main>
-
-      <aside aria-label="Related articles" class="py-8 lg:py-24 bg-[#ffffff3b]">
-        <div class="px-4 mx-auto max-w-screen-xl">
-          <h2 class="mb-8 text-2xl font-bold text-gray-900 dark:text-white">
-            Related articles
-          </h2>
-          <Cards />
-        </div>
-      </aside>
     </div>
   );
 };

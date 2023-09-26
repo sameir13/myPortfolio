@@ -36,6 +36,66 @@ export default async function handler(req, res) {
         res.status(err);
       }
 
+    case "PUT":
+      if (req.query.comments) {
+        let comments = req.query.comments;
+        switch (comments) {
+          case "POST":
+            let comment = await Model.findOneAndUpdate(
+              { slug: req.query.slug },
+              { $push: { comments: req.body } },
+              { new: true }
+            );
+            res.status(200).json({
+              success: true,
+              message: comment,
+            });
+            break;
+
+          case "DELETE":
+            let deleteComment = await Model.findOneAndUpdate(
+              { slug: req.query.slug },
+              { $pull: { comments: { _id: req.body._id } } },
+              { new: true }
+            );
+
+            res.status(200).json({
+              success: true,
+              message: deleteComment,
+            });
+            break;
+          default:
+            res.send("Invalid Comment");
+            break;
+        }
+      } else {
+        try {
+          const SingleBlog = await Model.findOne({
+            slug: req.query.slug,
+          });
+          if (!SingleBlog) {
+            res.status(404).json({ success: false, message: "Blog Not Found" });
+          } else {
+            const updateblog = await Model.findByIdAndUpdate(
+              SingleBlog._id,
+              {
+                $set: req.body,
+              },
+              { new: true }
+            );
+            res.status(200).json({
+              success: true,
+              updateblog,
+            });
+          }
+        } catch (e) {
+          console.log(e);
+          res.status(e).json({
+            success: false,
+            message: "Something Went Wrong!",
+          });
+        }
+      }
       break;
 
     default:

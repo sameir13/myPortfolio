@@ -34,11 +34,16 @@ const userschema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    comment: [
+    comments: [
       {
         username: { type: String, trim: true },
         comment: { type: String, trim: true },
+        createdAt:{type:Date,
+        default:Date.now},
+        updatedAt:{type:Date,
+          default:Date.now}
       },
+      
     ],
   },
   { timestamps: true }
