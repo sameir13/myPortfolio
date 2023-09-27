@@ -125,7 +125,7 @@ const Addblog = () => {
                   {...register("catagory")}
                 >
                   {catagories.map((v, i) => (
-                    <SelectItem key={v.name} value={v.name}>
+                    <SelectItem key={i} value={v.name}>
                       {v.name}
                     </SelectItem>
                   ))}
@@ -140,7 +140,11 @@ const Addblog = () => {
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
-                    <JoditEditor {...field} className="text-black bg-black" />
+                    <JoditEditor
+                      {...field}
+                      className="text-black"
+                      config={{ theme: "dark" }}
+                    />
                   )}
                 />
               </div>

@@ -38,7 +38,7 @@ export default function App() {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         {menuItems.map((v, i) => (
-          <NavbarItem>
+          <NavbarItem key={i}>
             <Links
               className={`text-white ${
                 router == v.link ? " text-gray-500 font-bold" : null

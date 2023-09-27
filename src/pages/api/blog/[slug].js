@@ -10,8 +10,8 @@ export default async function handler(req, res) {
         const body = await Model.findOne({
           slug: req.query.slug,
         });
+  
         res.status(201).json({
-          success: true,
           message: body,
         });
       } catch (error) {
@@ -58,10 +58,10 @@ export default async function handler(req, res) {
               { $pull: { comments: { _id: req.body._id } } },
               { new: true }
             );
-
+            console.log(deleteComment);
             res.status(200).json({
               success: true,
-              message: deleteComment,
+              message: "Comment Deleted",
             });
             break;
           default:

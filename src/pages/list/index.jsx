@@ -3,7 +3,7 @@ import { blogfetch } from "@/hooks/queryfetchblogs";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import axios from "axios";
 import {
   Table,
   TableHeader,
@@ -13,11 +13,12 @@ import {
   TableCell,
   Button,
 } from "@nextui-org/react";
-import axios from "axios";
 
 export default function App() {
   var [selectedKey, setkey] = useState([]);
   var [checks, setcheck] = useState(false);
+
+  // * Selecting From the List through checkbox---------------------
 
   const handleSelect = (i) => {
     var id = i;
@@ -32,7 +33,8 @@ export default function App() {
       console.log(selectedKey);
     }
   };
-
+  // * Selecting From the List through checkbox---------------------
+  // ! Deleting From the List --------------------------------------
   const del = async (arr) => {
     if (arr.length > 0) {
       arr.map(async (v) => {
@@ -53,15 +55,18 @@ export default function App() {
       setcheck(true);
     }
   };
+  // ! Deleting From the List --------------------------------------
+  // ? Fetching Data -----------------------------------------------
 
-  const { isLoading, error, data, isFetched } = blogfetch();
+  const { isLoading, error, data } = blogfetch();
 
   if (isLoading) return <p className="text-white">Loading....</p>;
 
   if (error) return <p className="text-white">Error {error.message} </p>;
+  // ? Fetching Data -----------------------------------------------
 
   return (
-    <>
+    <div className="px-4">
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -79,11 +84,11 @@ export default function App() {
       </div>
       <div className="my-3 flex justify-end px-4 gap-4">
         <Button onClick={() => checkin()}>
-          <i class="bx bxs-select-multiple"></i>
+          <i className="bx bxs-select-multiple"></i>
           Select All
         </Button>
         <Button onClick={() => del(selectedKey)} color="danger">
-          <i class="bx bxs-trash-alt"></i>
+          <i className="bx bxs-trash-alt"></i>
           Delete
         </Button>
       </div>
@@ -107,17 +112,19 @@ export default function App() {
                   }}
                 />
               </TableCell>
-              <TableCell className="line-clamp-2">{v.title}</TableCell>
-              <TableCell >{v.authorname}</TableCell>
+              <TableCell className="line-clamp-1 leading-10">
+                {v.title}
+              </TableCell>
+              <TableCell>{v.authorname}</TableCell>
               <TableCell className="text-right">
                 <Button color="secondary">
-                  <i class="bx bxs-edit-alt"></i>
+                  <i className="bx bxs-edit-alt"></i>
                 </Button>
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
-    </>
+    </div>
   );
 }

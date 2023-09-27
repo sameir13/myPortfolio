@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy } from "react";
 import { blogfetch } from "@/hooks/queryfetchblogs";
 import { Card, CardHeader, CardBody, Image, Button } from "@nextui-org/react";
 import Link from "next/link";
@@ -25,6 +25,7 @@ export default function App() {
                 className="object-cover rounded-xl"
                 src={v.blogimg}
                 width={270}
+                loading="lazy"
               />
             </CardHeader>
             <CardBody className="overflow-visible py-2">

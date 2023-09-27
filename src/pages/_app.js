@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }) {
           },
         }}
       >
-        <NextUIProvider className="dark">
+        <NextUIProvider>
           <QueryClientProvider client={queryClient}>
             <Navbar />
             <Component {...pageProps} />
