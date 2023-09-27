@@ -79,10 +79,10 @@ export default function App() {
         pauseOnHover
         theme="dark"
       />
-      <div className="w-full grid place-items-center h-80 ">
-        <h2 className="text-white text-6xl font-extrabold">BLOG LIST</h2>
+      <div className="grid h-80 w-full place-items-center ">
+        <h2 className="text-6xl font-extrabold text-white">BLOG LIST</h2>
       </div>
-      <div className="my-3 flex justify-end px-4 gap-4">
+      <div className="my-3 flex justify-end gap-4 px-4">
         <Button onClick={() => checkin()}>
           <i className="bx bxs-select-multiple"></i>
           Select All
@@ -93,7 +93,7 @@ export default function App() {
         </Button>
       </div>
 
-      <Table aria-label="Controlled table example with dynamic content">
+      <Table>
         <TableHeader>
           <TableColumn>Action</TableColumn>
           <TableColumn>Title</TableColumn>
