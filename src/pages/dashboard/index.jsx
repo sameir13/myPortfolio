@@ -1,11 +1,10 @@
-import React from "react";
-import Sidebar from "@/components/sidebar";
+import { Sidebar } from "@/components/index";
 
 const index = () => {
   return (
-    <div>
+    <div className="backdrop-blur-lg bg-[#00000076] flex ">
       <Sidebar />
-      index
+      <div></div>
     </div>
   );
 };

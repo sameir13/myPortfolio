@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import Layout from "../dashboardlayout";
 import {
   Table,
   TableHeader,
@@ -66,6 +67,7 @@ export default function App() {
   // ? Fetching Data -----------------------------------------------
 
   return (
+    <Layout>
     <div className="px-4">
       <ToastContainer
         position="top-right"
@@ -79,7 +81,7 @@ export default function App() {
         pauseOnHover
         theme="dark"
       />
-      <div className="grid h-80 w-full place-items-center ">
+      <div className="grid h-60 w-full place-items-center ">
         <h2 className="text-6xl font-extrabold text-white">BLOG LIST</h2>
       </div>
       <div className="my-3 flex justify-end gap-4 px-4">
@@ -126,5 +128,6 @@ export default function App() {
         </TableBody>
       </Table>
     </div>
+    </Layout>
   );
 }

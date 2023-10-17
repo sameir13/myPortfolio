@@ -1,13 +1,14 @@
 import React from "react";
-// import Dashboard from "@/components/Dashboard"
 import Addform from "@/components/Addform";
-import Layout from "@/components/layout";
+import Layout from "../dashboardlayout";
 
 const index = () => {
   return (
-    <>
-      <Addform />
-    </>
+    <Layout>
+      <div className="neon">
+        <Addform />
+      </div>
+    </Layout>
   );
 };
 

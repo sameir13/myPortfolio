@@ -19,20 +19,21 @@ export default function App() {
   const router = useRouter().asPath
 
   const menuItems = [
+    { name: "Home", link: "/" },
     { name: "Blogs", link: "/blogs" },
     { name: "Add Blog", link: "/blogadd" },
     { name: "Blog list", link: "/list" },
   ];
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} className="backdrop-blur bg-[#ffffff3a]">
+    <Navbar onMenuOpenChange={setIsMenuOpen} className="backdrop-blur bg-[#ffffff22]">
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
         <NavbarBrand>
-          <p className="font-bold text-inherit">NEWS</p>
+          <p className="font-bold text-inherit">QuantumCraft</p>
         </NavbarBrand>
       </NavbarContent>
 
@@ -52,7 +53,7 @@ export default function App() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button as={Link} color="warning" href="#" variant="flat">
+          <Button as={Link} color="primary" href="#" variant="flat">
             Login
           </Button>
         </NavbarItem>
