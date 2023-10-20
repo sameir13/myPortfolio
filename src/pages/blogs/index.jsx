@@ -1,4 +1,4 @@
-import Cards from "@/components/Cards";
+import BlogCards from "@/components/Cards";
 import Featurecards from "@/components/Featurecards";
 
 const blogs = () => {
@@ -12,7 +12,7 @@ const blogs = () => {
       </div>
       <div className="max-w-[1200px] m-auto my-5 py-6 px-4 neon ">
         <h3 className="font-semibold text-3xl mb-5">Latest News</h3>
-        <Cards />
+        <BlogCards />
       </div>
     </div>
   );
