@@ -1,5 +1,5 @@
 import React from "react";
-import { blogfetch } from "@/hooks/queryfetchblogs";
+import { Blogfetch } from "@/hooks/queryfetchblogs";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -59,7 +59,7 @@ export default function App() {
   // ! Deleting From the List --------------------------------------
   // ? Fetching Data -----------------------------------------------
 
-  const { isLoading, error, data } = blogfetch();
+  const { isLoading, error, data } = Blogfetch();
 
   if (isLoading) return <p className="text-white">Loading....</p>;
 
@@ -68,66 +68,66 @@ export default function App() {
 
   return (
     <Layout>
-    <div className="px-4">
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
-      <div className="grid h-60 w-full place-items-center ">
-        <h2 className="text-6xl font-extrabold text-white">BLOG LIST</h2>
-      </div>
-      <div className="my-3 flex justify-end gap-4 px-4">
-        <Button onClick={() => checkin()}>
-          <i className="bx bxs-select-multiple"></i>
-          Select All
-        </Button>
-        <Button onClick={() => del(selectedKey)} color="danger">
-          <i className="bx bxs-trash-alt"></i>
-          Delete
-        </Button>
-      </div>
+      <div className="px-4">
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
+        <div className="grid h-60 w-full place-items-center ">
+          <h2 className="text-6xl font-extrabold text-white">BLOG LIST</h2>
+        </div>
+        <div className="my-3 flex justify-end gap-4 px-4">
+          <Button onClick={() => checkin()}>
+            <i className="bx bxs-select-multiple"></i>
+            Select All
+          </Button>
+          <Button onClick={() => del(selectedKey)} color="danger">
+            <i className="bx bxs-trash-alt"></i>
+            Delete
+          </Button>
+        </div>
 
-      <Table>
-        <TableHeader>
-          <TableColumn>Action</TableColumn>
-          <TableColumn>Title</TableColumn>
-          <TableColumn>Author</TableColumn>
-          <TableColumn></TableColumn>
-        </TableHeader>
-        <TableBody items={data.message}>
-          {data?.message?.map((v, i) => (
-            <TableRow key={i}>
-              <TableCell>
-                <input
-                  type="checkbox"
-                  id="check"
-                  onChange={(e) => {
-                    handleSelect(v.slug);
-                  }}
-                />
-              </TableCell>
-              <TableCell className="line-clamp-1 leading-10">
-                {v.title}
-              </TableCell>
-              <TableCell>{v.authorname}</TableCell>
-              <TableCell className="text-right">
-                <Button color="secondary">
-                  <i className="bx bxs-edit-alt"></i>
-                </Button>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
+        <Table>
+          <TableHeader>
+            <TableColumn>Action</TableColumn>
+            <TableColumn>Title</TableColumn>
+            <TableColumn>Author</TableColumn>
+            <TableColumn></TableColumn>
+          </TableHeader>
+          <TableBody items={data.message}>
+            {data?.message?.map((v, i) => (
+              <TableRow key={i}>
+                <TableCell>
+                  <input
+                    type="checkbox"
+                    id="check"
+                    onChange={(e) => {
+                      handleSelect(v.slug);
+                    }}
+                  />
+                </TableCell>
+                <TableCell className="line-clamp-1 leading-10">
+                  {v.title}
+                </TableCell>
+                <TableCell>{v.authorname}</TableCell>
+                <TableCell className="text-right">
+                  <Button color="secondary">
+                    <i className="bx bxs-edit-alt"></i>
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
     </Layout>
   );
 }

@@ -1,4 +1,3 @@
-"use client";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useForm, Controller } from "react-hook-form";
@@ -6,6 +5,8 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import { Select, SelectItem, Input } from "@nextui-org/react";
+import Image from 'next/image'
+
 const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 
 const Addblog = () => {
@@ -150,7 +151,7 @@ const Addblog = () => {
               </div>
               {tempImg ? (
                 <div className="w-full border">
-                  <img src={URL.createObjectURL(tempImg)} />
+                  <Image alt="" src={URL.createObjectURL(tempImg)} />
                   <i onClick={() => setTemImg(null)} className="bx bx-x"></i>
                 </div>
               ) : (

@@ -2,8 +2,10 @@ import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 
-const layout = ({children}) => {
+const Layout = ({children}) => {
+
   const router = useRouter();
+
   return (
     <AnimatePresence mode="wait">
       <motion.main
@@ -33,4 +35,4 @@ const layout = ({children}) => {
   );
 };
 
-export default layout;
+export default Layout;

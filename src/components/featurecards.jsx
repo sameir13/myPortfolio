@@ -1,5 +1,5 @@
 import React from "react";
-import { blogfetch } from "@/hooks/queryfetchblogs";
+import { Blogfetch } from "@/hooks/queryfetchblogs";
 import Link from "next/link";
 import {
   Card,
@@ -10,14 +10,14 @@ import {
 } from "@nextui-org/react";
 
 export default function App() {
-  const { isLoading, error, data } = blogfetch();
+  const { isLoading, error, data } = Blogfetch();
 
   if (isLoading) return <p className="text-white">Loading....</p>;
 
   if (error) return <p className="text-white">Error {error.message} </p>;
   return (
     <div className="max-w-[1200px] m-auto gap-2 grid grid-cols-12 grid-rows-2">
-      {data?.message?.slice(0, 3).map((v, i) => (
+      {/* {data?.message?.slice(0, 3).map((v, i) => (
         <Link className="col-span-12 sm:col-span-4 h-[300px]" href={`/blogs/${v.slug}`} key={i}>       
         <Card className="col-span-12 sm:col-span-4 h-[300px]">
           <CardHeader className="absolute z-10 top-1 flex-col !items-start">
@@ -32,8 +32,8 @@ export default function App() {
           />
         </Card>
         </Link>
-      ))}
-      <Card
+      ))} */}
+      {/* <Card
         isFooterBlurred
         className="w-full h-[300px] col-span-12 sm:col-span-5"
       >
@@ -84,7 +84,7 @@ export default function App() {
           <Link href={`/blogs/${data.message[4].slug}`}>Read More</Link>
           </Button>
         </CardFooter>
-      </Card>
+      </Card> */}
     </div>
   );
 }

@@ -1,5 +1,5 @@
-import React, { lazy } from "react";
-import { blogfetch } from "@/hooks/queryfetchblogs";
+import React from "react";
+import { Blogfetch } from "@/hooks/queryfetchblogs";
 import { Card, CardHeader, CardBody, Image, Button } from "@nextui-org/react";
 import Link from "next/link";
 
@@ -8,7 +8,7 @@ export default function App() {
     return { __html: c };
   }
 
-  const { isLoading, error, data } = blogfetch();
+  const { isLoading, error, data } = Blogfetch();
 
   if (isLoading) return <p className="text-white">Loading....</p>;
 
@@ -42,7 +42,7 @@ export default function App() {
                 className="text-tiny uppercase font-normal text-clip line-clamp-3"
                 dangerouslySetInnerHTML={createMarkup(v.description)}
               />
-              <Link href={`/blogs/${v.slug}`} >
+              <Link href={`/blogs/${v.slug}`}>
                 <Button className="mt-5">Read More</Button>
               </Link>
             </CardBody>

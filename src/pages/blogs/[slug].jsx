@@ -4,6 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
+import Image from "next/image";
 import {
   Textarea,
   Input,
@@ -13,7 +14,7 @@ import {
   CardBody,
 } from "@nextui-org/react";
 
-const singleblog = () => {
+const Singleblog = () => {
   const router = useRouter();
   const slug = router?.query?.slug;
 
@@ -56,7 +57,7 @@ const singleblog = () => {
     queryKey: ["repoData", slug],
     queryFn: async () =>
       await fetch(`/api/blog/${slug}`).then((res) => res.json()),
-      refetchInterval: 5000,
+    refetchInterval: 5000,
   });
 
   if (isLoading) return <p className="text-white">Loading....</p>;
@@ -109,7 +110,7 @@ const singleblog = () => {
             <header className="mb-4 lg:mb-6 not-format">
               <address className="flex items-center mb-6 not-italic">
                 <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
-                  <img
+                  <Image
                     className="mr-4 w-16 h-16 rounded-full"
                     src=""
                     alt={data?.message?.authorname}
@@ -175,12 +176,13 @@ const singleblog = () => {
               </form>
               {/* Comments Form */}
               {data?.message?.comments?.reverse().map((v, i) => (
-                <div className="py-2 px-4 mb-6">
+                <div key={i} className="py-2 px-4 mb-6">
                   <Card key={i} className=" text-base">
                     <CardHeader className="flex justify-between items-center">
                       <div className="flex items-center">
                         <p className="inline-flex items-center mr-3 font-semibold text-sm text-gray-900 dark:text-white">
-                          <img
+                          <Image
+                            alt=""
                             className="mr-2 w-6 h-6 rounded-full"
                             src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
                           />
@@ -210,4 +212,4 @@ const singleblog = () => {
   );
 };
 
-export default singleblog;
+export default Singleblog;

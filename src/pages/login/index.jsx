@@ -1,5 +1,6 @@
 import { Login } from "@/components";
-const login = () => {
+
+const index = () => {
   return (
     <div className="backdrop-blur-lg bg-[#00000076] flex neon h-screen justify-center al">
       <div className="m-auto">
@@ -9,4 +10,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default index;
