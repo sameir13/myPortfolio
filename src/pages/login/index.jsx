@@ -1,4 +1,4 @@
-import { Login } from "@/components";
+import Login  from "@/components/Login";
 
 const index = () => {
   return (
