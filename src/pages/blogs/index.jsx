@@ -1,5 +1,4 @@
-import Cards from "@/components/Card";
-import Featurecards from "@/components/Featurecards";
+import { Cards, Featurecards } from "@/components";
 
 const blogs = () => {
   return (

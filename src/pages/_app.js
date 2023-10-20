@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/index";
 import "@/styles/404.css";
 import "@/styles/addform.css";
 import "@/styles/globals.css";

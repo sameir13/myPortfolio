@@ -1,4 +1,4 @@
-import {Sidebar} from "@/components/index";
+import { Sidebar } from "@/components";
 
 const layout = ({children}) => {
   return (
