@@ -1,24 +1,31 @@
-import Model from "../../../../model/user";
+import Model from "@/model/blog";
 import dbConnect from "@/Config/DBconfi";
 
 dbConnect();
 
 export default async function handler(req, res) {
+  // * Performing Operation on Blogs Through Slug -------------------------------------------------------------/
   switch (req.method) {
     case "GET":
+      // : Finding Single ----------------------------------/
       try {
         const body = await Model.findOne({
           slug: req.query.slug,
         });
-  
+
         res.status(201).json({
           message: body,
         });
+        // ! Error Checking ----------------------------------/
       } catch (error) {
         console.log(error);
+        // ! Error Checking -----------------------------------/
       }
       break;
+    // : Finding Single ----------------------------------/
+
     case "DELETE":
+      // : Deleting Blog ----------------------------------/
       try {
         const singleBlog = await Model.findOne({
           slug: req.query.slug,
@@ -32,11 +39,16 @@ export default async function handler(req, res) {
             message: "Your Blog has been deleted successfuly",
           });
         }
+
+        // ! Error Checking -----------------------------------/
       } catch (err) {
         res.status(err);
+        // ! Error Checking ---------------------------------------/
       }
+    // : Deleting Blog ----------------------------------/
 
     case "PUT":
+      // : Updating/Adding Comments ----------------------------------/
       if (req.query.comments) {
         let comments = req.query.comments;
         switch (comments) {
@@ -51,7 +63,8 @@ export default async function handler(req, res) {
               message: comment,
             });
             break;
-
+          // : Updating/Adding Comments ----------------------------------/
+          // : Deleting Comments  ----------------------------------------/
           case "DELETE":
             let deleteComment = await Model.findOneAndUpdate(
               { slug: req.query.slug },
@@ -68,7 +81,9 @@ export default async function handler(req, res) {
             res.send("Invalid Comment");
             break;
         }
+        // : Deleting Comments  ----------------------------------------/
       } else {
+        // : Updating Blog ---------------------------------------------/
         try {
           const SingleBlog = await Model.findOne({
             slug: req.query.slug,
@@ -88,17 +103,21 @@ export default async function handler(req, res) {
               updateblog,
             });
           }
+          // ! Error Checking -------------------------------------------/
         } catch (e) {
           console.log(e);
           res.status(e).json({
             success: false,
             message: "Something Went Wrong!",
           });
+          // ! Error Checking -------------------------------------------/
         }
       }
       break;
+    // : Updating Blog ---------------------------------------------/
 
     default:
       break;
   }
+  // * Performing Operation on Blogs Through Slug -------------------------------------------------------------/
 }

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const userschema = new mongoose.Schema(
+const blogschema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -45,4 +45,4 @@ const userschema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose?.models?.user || mongoose?.model("user", userschema);
+export default mongoose?.models?.blog || mongoose?.model("blog", blogschema);
