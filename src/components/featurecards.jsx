@@ -9,7 +9,7 @@ import {
   Button,
 } from "@nextui-org/react";
 
-export default function App() {
+export default function Featurecards() {
   const { isLoading, error, data } = Blogfetch();
 
   if (isLoading) return <p className="text-white">Loading....</p>;

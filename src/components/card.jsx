@@ -3,7 +3,7 @@ import { Blogfetch } from "@/hooks/queryfetchblogs";
 import { Card, CardHeader, CardBody, Image, Button } from "@nextui-org/react";
 import Link from "next/link";
 
-export default function App() {
+export default function Card() {
   function createMarkup(c) {
     return { __html: c };
   }
