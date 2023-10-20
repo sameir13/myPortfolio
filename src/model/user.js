@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+// ? Creating New Schema --------------------------------------------------------------/
+
 const userschema = new mongoose.Schema(
   {
     username: {
@@ -15,4 +17,5 @@ const userschema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// ? Checking If Collection is Already Created ---------------------------------------/ 
 export default mongoose?.models?.users || mongoose?.model("users", userschema);

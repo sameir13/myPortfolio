@@ -1,5 +1,6 @@
 import {jwtVerify,SignJWT} from 'jose'
 
+// ? Generating JWT Token ------------------------------------------------/
 
 async function GenAccessToken(data){
     var token = await new SignJWT(data)
@@ -12,6 +13,7 @@ async function GenAccessToken(data){
 }
 
 
+// ? Verifing JWT Token --------------------------------------------------/
 
 async function JWTVerify(token){
     try {
@@ -24,6 +26,7 @@ async function JWTVerify(token){
 
 }
 
+// ? Exporting The Token -------------------------------------------------/
 
 module.exports = {
     GenAccessToken,

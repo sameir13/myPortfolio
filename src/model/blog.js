@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+// ? Creating New Schema --------------------------------------------------------------/
+
 const blogschema = new mongoose.Schema(
   {
     title: {
@@ -39,10 +41,10 @@ const blogschema = new mongoose.Schema(
         username: { type: String, trim: true },
         comment: { type: String, trim: true },
       },
-      {timestamps:true}
+      { timestamps: true },
     ],
   },
   { timestamps: true }
 );
-
+// ? Checking If Collection is Already Created ---------------------------------------/
 export default mongoose?.models?.blog || mongoose?.model("blog", blogschema);
