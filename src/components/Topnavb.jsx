@@ -14,7 +14,7 @@ import {
   NavbarMenuItem,
 } from "@nextui-org/react";
 
-export default function Navbar() {
+export default function Topbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const router = useRouter().asPath;
 
