@@ -1,9 +1,8 @@
 import { Button } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
 
-const Loginform = () => {
-
-  const {register, reset, handleSubmit} = useForm();
+export default function Loginform() {
+  const { register, reset, handleSubmit } = useForm();
 
   return (
     <div class="relative py-3 sm:max-w-xl sm:mx-auto">
@@ -46,6 +45,4 @@ const Loginform = () => {
       </div>
     </div>
   );
-};
-
-export default Loginform;
+}

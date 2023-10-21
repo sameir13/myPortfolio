@@ -1,13 +1,6 @@
-import React from "react";
 import { Blogfetch } from "@/hooks/queryfetchblogs";
 import Link from "next/link";
-import {
-  Card,
-  CardHeader,
-  CardFooter,
-  Image,
-  Button,
-} from "@nextui-org/react";
+import { Card, CardHeader, CardFooter, Image, Button } from "@nextui-org/react";
 
 export default function Featurecards() {
   const { isLoading, error, data } = Blogfetch();
@@ -17,6 +10,7 @@ export default function Featurecards() {
   if (error) return <p className="text-white">Error {error.message} </p>;
   return (
     <div className="max-w-[1200px] m-auto gap-2 grid grid-cols-12 grid-rows-2">
+      <span>hi</span>
       {/* {data?.message?.slice(0, 3).map((v, i) => (
         <Link className="col-span-12 sm:col-span-4 h-[300px]" href={`/blogs/${v.slug}`} key={i}>       
         <Card className="col-span-12 sm:col-span-4 h-[300px]">

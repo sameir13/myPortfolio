@@ -1,7 +1,6 @@
-import React from "react";
 import Link from "next/link";
 
-const sidebar = () => {
+export default function Sidebar() {
   const menu = [
     {
       link: "/dashboard",
@@ -28,7 +27,7 @@ const sidebar = () => {
     <nav className="w-min sticky left-0 top-0 h-screen rounded-2xl bg-[#0000007e] py-5 flex gap-28 flex-col z-50 justify-between">
       <ul className="flex flex-col gap-3">
         <li className="py-1 px-3">
-          <i class='bx bx-shape-polygon rounded-full p-2 text-blue-400'></i>
+          <i class="bx bx-shape-polygon rounded-full p-2 text-blue-400"></i>
         </li>
         <hr />
         {menu?.map((v, i) => (
@@ -50,6 +49,4 @@ const sidebar = () => {
       </Link>
     </nav>
   );
-};
-
-export default sidebar;
+}
