@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 import Links from "next/link";
 
 import {
@@ -16,7 +16,7 @@ import {
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const router = useRouter().asPath
+  const router = useRouter().asPath;
 
   const menuItems = [
     { name: "Home", link: "/" },
@@ -26,7 +26,10 @@ export default function Navbar() {
   ];
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} className="backdrop-blur bg-[#ffffff22]">
+    <Navbar
+      onMenuOpenChange={setIsMenuOpen}
+      className="backdrop-blur bg-[#ffffff22]"
+    >
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
