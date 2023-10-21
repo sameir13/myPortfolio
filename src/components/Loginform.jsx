@@ -1,7 +1,7 @@
 import { Button } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
 
-const Login = () => {
+const Loginform = () => {
 
   const {register, reset, handleSubmit} = useForm();
 
@@ -48,4 +48,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Loginform;
