@@ -1,5 +1,5 @@
 import BlogCards from "@/components/Blogcards";
-import Featurecards from "@/components/Featurecards";
+import Featurecards from "../../components/featurecards";
 
 const blogs = () => {
   return (
