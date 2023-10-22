@@ -54,7 +54,13 @@ export default function Topbar() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button className="text-white" as={Link} color="primary" href="/dashboard" variant="flat">
+          <Button
+            className="text-white"
+            as={Link}
+            color="primary"
+            href="/dashboard"
+            variant="flat"
+          >
             Login
           </Button>
         </NavbarItem>
