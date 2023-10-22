@@ -47,7 +47,7 @@
 .animation {
   animation: reveal linear both;
   animation-timeline: view(block);
-  animation-range: entry-crossing 45% contain 70%;
+  animation-range: entry-crossing 0% contain 15%;
 }
 @keyframes reveal {
   0% {
