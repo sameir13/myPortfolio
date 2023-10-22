@@ -21,6 +21,7 @@
 
 .neon {
   position: relative;
+  padding: 0px 15px;
 }
 .neon::before {
   content: "";

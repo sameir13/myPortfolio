@@ -43,7 +43,7 @@ export default function Topbar() {
           <NavbarItem key={i}>
             <Links
               className={`text-white ${
-                router == v.link ? " text-gray-500 font-bold" : null
+                router == v.link ? " text-orange-400 " : null
               } `}
               href={v.link}
             >
@@ -54,7 +54,7 @@ export default function Topbar() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button as={Link} color="primary" href="/dashboard" variant="flat">
+          <Button className="text-white" as={Link} color="primary" href="/dashboard" variant="flat">
             Login
           </Button>
         </NavbarItem>
