@@ -1,4 +1,4 @@
-// import Topnavb from "@/components/Topnavb";
+import Topnavb from "@/components/Topnavb";
 import "@/styles/404.css";
 import "@/styles/addform.css";
 import "@/styles/globals.css";
@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }) {
       <NextUIProvider>
         <QueryClientProvider client={queryClient}>
           <main className="bodyback">
-            {/* {!arr.includes(Pathname.pathname) ? <Topnavb /> : null} */}
+            {!arr.includes(Pathname.pathname) ? <Topnavb /> : null}
             <Component {...pageProps} />
           </main>
         </QueryClientProvider>
