@@ -36,7 +36,7 @@ const home = () => {
               </div>
             </div>
             <div className="w-1/3">
-              <Image alt="" className="w-full" src={lady} loading="lazy"></Image>
+              <Image alt="" className="w-full" src={lady} ></Image>
             </div>
           </div>
           {/* Hero Cutomer */}

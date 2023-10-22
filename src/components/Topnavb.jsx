@@ -21,8 +21,6 @@ export default function Topbar() {
   const menuItems = [
     { name: "Home", link: "/" },
     { name: "Blogs", link: "/blogs" },
-    { name: "Add Blog", link: "/blogadd" },
-    { name: "Blog list", link: "/list" },
   ];
 
   return (
@@ -56,7 +54,7 @@ export default function Topbar() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
+          <Button as={Link} color="primary" href="/dashboard" variant="flat">
             Login
           </Button>
         </NavbarItem>
