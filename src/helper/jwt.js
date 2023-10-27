@@ -28,7 +28,5 @@ async function JWTVerify(token){
 
 // ? Exporting The Token -------------------------------------------------/
 
-module.exports = {
-    GenAccessToken,
-    JWTVerify
-}
+
+export {GenAccessToken , JWTVerify}

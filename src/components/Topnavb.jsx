@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
 export default function Topbar() {
   const Pathname = useRouter().asPath;
 
-  const [active, setActive] = useState("-1000");
-  const [transiton, setanime] = useState("left-[-100%]");
+  const [active, setActive] = useState("left-[-100%]");
 
+  useEffect(()=>{
+    if (active === "left-0") {
+      window.document.body.style.overflow = "hidden"
+    }else{
+      window.document.body.style.overflow = "visible"
+    }
+  },[active])
 
   const navlink = [
     { name: "Home", link: "/" },
@@ -16,17 +22,17 @@ export default function Topbar() {
 
   return (
     <>
-      <nav className="fixed left-0 right-0 top-0 z-20 backdrop-blur-lg ">
-        <div className="px-11 py-6 flex justify-between items-center max-w-[1200px] m-auto">
+      <nav className="sticky left-0 right-0 top-0 z-20 backdrop-blur-md bg-[#00000076] ">
+        <div className="px-11 py-4 flex justify-between items-center max-w-[1200px] m-auto">
         <Link className="text-xl font-bold leading-none" href="/home">
           Quantam Craft
         </Link>
         <div className=" lg:hidden">
           <button
             onClick={() => {
-              setActive("9999"),setanime("left-0");
+              setActive("left-0");
             }}
-            className="navbar-burger flex items-center  text-blue-600 p-3 "
+            className="navbar-burger flex items-center  p-3 "
           >
             <svg
               className="block h-4 w-4 fill-current"
@@ -39,13 +45,13 @@ export default function Topbar() {
           </button>
         </div>
         <ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2  lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
-          {navlink.map((v) => {
+          {navlink.map((v,i) => {
             return (
-              <div className="lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+              <div key={i} className="lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
                 <li>
                   <Link
-                    className={`text-sm text-gray-400 hover:text-gray-500 ${
-                      Pathname == v.link ? " text-purple-300 font-bold" : null
+                    className={`text-sm  hover:text-gray-500 ${
+                      Pathname == v.link ? " text-orange-400  font-bold" : null
                     } `}
                     href={v.link}
                   >
@@ -78,13 +84,13 @@ export default function Topbar() {
         </div>
       </nav>
       {/* //? Mobile Menu --------------------------------------------------------- */}
-      <div className="navbar-menu relative " style={{ zIndex: active }}>
-        <div className="navbar-backdrop fixed inset-0  w-full bg-[#00000082] backdrop-blur-sm"
+      <div className={`navbar-menu `}>
+        <div className={`navbar-backdrop fixed top-0 duration-150  ${active} lef z-50 w-full  bg-[#00000082] backdrop-blur-sm`}
         onClick={() => {
-          setActive("none");
-        }}></div>
+          setActive("left-[-100%]");
+        }}>
         <nav
-          className={`fixed top-0 duration-100 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 backdrop-blur-xl  overflow-y-auto ${transiton} `}
+          className="flex flex-col w-5/6 max-w-sm py-6 px-6 backdrop-blur-xl h-screen overflow-y-auto"
           style={{ backgroundColor: "#2727279c" }}
         >
           <div className="flex items-center mb-8">
@@ -99,7 +105,7 @@ export default function Topbar() {
             <button
               className="navbar-close"
               onClick={() => {
-                setActive("none");
+                setActive("left-[-100%]");
               }}
             >
               <svg
@@ -120,9 +126,9 @@ export default function Topbar() {
           </div>
           <div>
             <ul>
-              {navlink.map((v) => {
+              {navlink.map((v,i) => {
                 return (
-                  <li className="mb-1">
+                  <li key={i} className="mb-1">
                     <Link
                       className="block p-4 text-sm font-semibold text-gray-400 hover:bg-slate-600 hover:text-purple-300 rounded"
                       href={v.link}
@@ -140,6 +146,7 @@ export default function Topbar() {
             </p>
           </div>
         </nav>
+        </div>
       </div>
     </>
   );

@@ -15,7 +15,7 @@ export default async function POST(req, res) {
     });
 
     if (!foundUser) {
-      res.status(400).json({
+      res.json({
         success: false,
         message: "User not found!",
       });
@@ -29,7 +29,7 @@ export default async function POST(req, res) {
     });
 
     if (!isValidated) {
-      res.status(400).json({
+      res.json({
         success: false,
         message: "Invalid Password!",
       });
@@ -73,7 +73,7 @@ export default async function POST(req, res) {
     // ! Error Checking----------------------------------------------------------------/
   } catch (error) {
     console.log(error);
-    res.status(401).json({
+    res.json({
       success: false,
       message: error,
     });

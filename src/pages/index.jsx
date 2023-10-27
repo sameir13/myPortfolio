@@ -13,13 +13,13 @@ import {
 const home = () => {
   return (
     <div className="homebody">
-      <div className="backdrop-blur-lg bg-[#00000076]">
+      <div className="backdrop-blur-lg bg-[#00000076] px-4">
         {/* Hero */}
         <section className="neon">
           {/* Hero Section */}
           <div className="flex flex-col sm:justify-evenly justify-end items-end pt-12 max-w-[1200px] m-auto sm:flex-row">
             <div className="sm:w-3/6 w-full flex flex-col gap-10 justify-center">
-              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-6xl 2xl:text-7xl font-bold font-[Modren]">
+              <h2 className="text-4xl sm:text-xl md:text-2xl lg:text-3xl xl:text-6xl 2xl:text-7xl font-bold font-[Modren]">
                 Where Innovation <br /> Meets Digital Precision
               </h2>
               <p>
