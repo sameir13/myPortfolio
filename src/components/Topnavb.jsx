@@ -22,12 +22,12 @@ export default function Topbar() {
 
   return (
     <>
-      <nav className="sticky left-0 right-0 top-0 z-20 backdrop-blur-md bg-[#00000076] ">
-        <div className="px-11 py-4 flex justify-between items-center max-w-[1200px] m-auto">
+      <nav className="relative  max-w-[1100px] m-auto px-2">
+        <div className=" py-4 flex justify-between items-center max-w-[1200px] m-auto">
         <Link className="text-xl font-bold leading-none" href="/home">
           Quantam Craft
         </Link>
-        <div className=" lg:hidden">
+        <div className="lg:hidden">
           <button
             onClick={() => {
               setActive("left-0");

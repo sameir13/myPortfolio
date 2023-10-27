@@ -1,6 +1,5 @@
 import React from "react";
 import { Blogfetch } from "@/hooks/queryfetchblogs";
-import { Card, CardHeader, CardBody, Image, Button } from "@nextui-org/react";
 import Link from "next/link";
 
 export default function Cards() {
@@ -16,19 +15,29 @@ export default function Cards() {
 
   return (
     <>
-      <div className="flex flex-wrap gap-2  ">
+      <div className="flex flex-wrap gap-2">
         {data?.message?.map((v, i) => (
-          <Card key={i} className="py-4 max-w-[285px]">
-            <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-              <Image
-                alt="Card background"
-                className="object-cover rounded-xl"
-                src={v.blogimg}
-                width={270}
-                loading="lazy"
-              />
-            </CardHeader>
-            <CardBody className="overflow-visible py-2">
+          //*  Blog Card -----------------------------------------------------//
+          <div
+            key={i}
+            className="bg-gray-900 group hover:bg-slate-700 duration-1000 rounded-xl max-w-[16rem]"
+          >
+            {/*//? Card Image ---------------------------------------------- */}
+            <div className="p-2 overflow-hidden">
+              <div className="overflow-hidden max-[300px]: rounded-md">
+                <img
+                  width={700}
+                  height={700}
+                  alt="Card background"
+                  className="object-cover w-full  group-hover:scale-105 duration-100"
+                  src={v.blogimg}
+                />
+              </div>
+            </div>
+            {/*//? --------------------------------------------------------- */}
+
+            {/*//? Card Info ----------------------------------------------- */}
+            <div className="overflow-visible py-2 px-4">
               <div className="flex justify-between mb-3">
                 <small className="text-default-500">{v.authorname}</small>
                 <small className="text-default-500">
@@ -43,10 +52,11 @@ export default function Cards() {
                 dangerouslySetInnerHTML={createMarkup(v.description)}
               />
               <Link href={`/blogs/${v.slug}`}>
-                <Button className="mt-5">Read More</Button>
+                <button className="mt-5">Read More</button>
               </Link>
-            </CardBody>
-          </Card>
+            </div>
+            {/*//? --------------------------------------------------------- */}
+          </div>
         ))}
       </div>
     </>

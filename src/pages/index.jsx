@@ -1,24 +1,15 @@
-import React from "react";
-import lady from "../images/aunti.png";
-import graphic from "../images/graphic.png";
 import Image from "next/image";
-import {
-  Button,
-  Avatar,
-  AvatarGroup,
-  Card,
-  CardFooter,
-} from "@nextui-org/react";
+import lady from "../images/aunti.png";
 
 const home = () => {
   return (
-    <div className="homebody">
-      <div className="backdrop-blur-lg bg-[#00000076] px-4">
+    <div>
+      <div className="px-4">
         {/* Hero */}
         <section className="neon">
           {/* Hero Section */}
           <div className="flex flex-col sm:justify-evenly justify-end items-end pt-12 max-w-[1200px] m-auto sm:flex-row">
-            <div className="sm:w-3/6 w-full flex flex-col gap-10 justify-center">
+            <div className="sm:w-3/6 pb-16 w-full flex flex-col gap-10 justify-center">
               <h2 className="text-4xl sm:text-xl md:text-2xl lg:text-3xl xl:text-6xl 2xl:text-7xl font-bold font-[Modren]">
                 Where Innovation <br /> Meets Digital Precision
               </h2>
@@ -29,10 +20,10 @@ const home = () => {
                 aut reprehenderit sunt consequatur aspernatur laborum!
               </p>
               <div className="flex gap-6 py-4">
-                <Button color="primary" variant="flat">
+                <button className="btn">
                   Get Started
-                </Button>
-                <Button variant="bordered">Learn More ---→ </Button>
+                </button>
+                <button variant="bordered">Learn More ---→ </button>
               </div>
             </div>
             <div className="sm:w-1/3 w-3/6">
@@ -40,131 +31,26 @@ const home = () => {
             </div>
           </div>
           {/* Hero Cutomer */}
-          <div className="max-w-[1100px] m-auto flex py-10 px-4 justify-evenly  backdrop-blur-[18px] rounded-lg">
+          <div className="max-w-[1100px] m-auto flex py-10 px-4 justify-evenly  backdrop-blur-[18px] rounded-lg bg-[#00000060]">
             <div className="flex gap-5 w-1/2 items-center text-md sm:text-lg md:text-xl lg:text-2xl xl:text-4xl 2xl:text-5xl">
               <h3 className="font-[Modren]">Customers</h3>
               <hr className="border h-full transform font-[Modren]" />
               <p>24.3k</p>
             </div>
             <div className="p-3 w-1/2">
-              <AvatarGroup isBordered>
-                <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
-                <Avatar src="https://i.pravatar.cc/150?u=a04258a2462d826712d" />
-                <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026704d" />
-                <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026302d" />
-                <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026702d" />
-                <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026708c" />
-              </AvatarGroup>
+              hi
             </div>
           </div>
         </section>
         {/* Service */}
         <section className="neon animation">
-          <div className="flex flex-col-reverse gap-4 justify-evenly py-20 max-w-[1200px] m-auto lg:flex-row">
+          <div className="grid grid-cols-2 border gap-4  max-w-[1200px] m-auto">
             {/* Cards */}
             <div className="flex flex-wrap gap-10 justify-evenly w-full sm:w-3/6">
-              <Card
-                isFooterBlurred
-                radius="lg"
-                className="border-none bg-transparent"
-              >
-                <Image
-                  alt="Woman listing to music"
-                  className="object-cover"
-                  height={200}
-                  src={graphic}
-                  width={200}
-                />
-                <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-                  <p className="text-tiny text-white/80">Graphic Design</p>
-                  <Button
-                    className="text-tiny text-white bg-black/20"
-                    variant="flat"
-                    radius="lg"
-                    size="sm"
-                  >
-                    Contact
-                  </Button>
-                </CardFooter>
-              </Card>
-              <Card
-                isFooterBlurred
-                radius="lg"
-                className="border-none bg-transparent"
-              >
-                <Image
-                  alt="Woman listing to music"
-                  className="object-cover"
-                  height={200}
-                  src={graphic}
-                  width={200}
-                />
-                <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-                  <p className="text-tiny text-white/80">Graphic Design</p>
-                  <Button
-                    className="text-tiny text-white bg-black/20"
-                    variant="flat"
-                    color="default"
-                    radius="lg"
-                    size="sm"
-                  >
-                    Contact
-                  </Button>
-                </CardFooter>
-              </Card>
-              <Card
-                isFooterBlurred
-                radius="lg"
-                className="border-none bg-transparent"
-              >
-                <Image
-                  alt="Woman listing to music"
-                  className="object-cover"
-                  height={200}
-                  src={graphic}
-                  width={200}
-                />
-                <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-                  <p className="text-tiny text-white/80">Graphic Design</p>
-                  <Button
-                    className="text-tiny text-white bg-black/20"
-                    variant="flat"
-                    color="default"
-                    radius="lg"
-                    size="sm"
-                  >
-                    Contact
-                  </Button>
-                </CardFooter>
-              </Card>
-              <Card
-                isFooterBlurred
-                radius="lg"
-                className="border-none bg-transparent"
-              >
-                <Image
-                  alt="Woman listing to music"
-                  className="object-cover"
-                  height={200}
-                  src={graphic}
-                  width={200}
-                />
-                <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
-                  <p className="text-tiny text-white/80">Graphic Design</p>
-                  <Button
-                    className="text-tiny text-white bg-black/20"
-                    variant="flat"
-                    color="default"
-                    radius="lg"
-                    size="sm"
-                  >
-                    Contact
-                  </Button>
-                </CardFooter>
-              </Card>
+              cards
             </div>
             {/* Services info */}
-            <div className="flex justify-evenly sm:w-3/6 w-full">
+            <div className="grid grid-cols-2">
               <div className="flex flex-col gap-10 justify-center">
                 <span className="text-orange-400">Popular Services ---→</span>
                 <h2 className="text-md sm:text-lg md:text-xl lg:text-2xl xl:text-4xl 2xl:text-5xl font-bold font-[Modren]">
@@ -177,9 +63,9 @@ const home = () => {
                   eaque aut reprehenderit sunt consequatur aspernatur laborum!
                 </p>
                 <div className="flex gap-6">
-                  <Button className="text-white" color="primary" variant="flat">
+                  <button className="btn">
                     Contact Now ---→
-                  </Button>
+                  </button>
                 </div>
               </div>
             </div>

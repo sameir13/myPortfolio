@@ -3,7 +3,7 @@ import Featurecards from "../../components/featurecards";
 
 const blogs = () => {
   return (
-    <div className="backdrop-blur-lg bg-[#0000006d]">
+    <>
       <div className="w-full grid place-items-center h-80 ">
         <h2 className="text-white text-6xl font-extrabold">Blogs</h2>
       </div>
@@ -14,7 +14,7 @@ const blogs = () => {
         <h3 className="font-semibold text-3xl mb-5">Latest News</h3>
         <BlogCards />
       </div>
-    </div>
+    </>
   );
 };
 
