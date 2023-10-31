@@ -1,4 +1,3 @@
-import { Button } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -66,9 +65,9 @@ export default function Loginform() {
                     />
                   </div>
                   <div className="relative">
-                    <Button color="primary" variant="faded">
+                    <button color="primary" variant="faded">
                       <input type="submit" />
-                    </Button>
+                    </button>
                   </div>
                 </div>
               </div>
