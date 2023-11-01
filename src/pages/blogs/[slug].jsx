@@ -5,14 +5,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import Image from "next/image";
-import {
-  Textarea,
-  Input,
-  Button,
-  Card,
-  CardHeader,
-  CardBody,
-} from "@nextui-org/react";
 
 const Singleblog = () => {
   const router = useRouter();
@@ -145,7 +137,7 @@ const Singleblog = () => {
               {/* Comments Form */}
               <form className="mb-6" onSubmit={handleSubmit}>
                 <div className="py-2 px-4 mb-4 flex flex-col gap-3">
-                  <Input
+                  <input
                     id="username"
                     onChange={handleChange}
                     name="username"
@@ -155,7 +147,7 @@ const Singleblog = () => {
                     placeholder="Write your username"
                     required
                   />
-                  <Textarea
+                  <textarea
                     id="comment"
                     onChange={handleChange}
                     name="comment"
@@ -165,17 +157,17 @@ const Singleblog = () => {
                     placeholder="Write a comment..."
                     required
                   />
-                  <Button
+                  <button
                     type="submit"
                     variant="bordered"
                     className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center"
                   >
                     Post comment
-                  </Button>
+                  </button>
                 </div>
               </form>
               {/* Comments Form */}
-              {data?.message?.comments?.reverse().map((v, i) => (
+              {/* {data?.message?.comments?.reverse().map((v, i) => (
                 <div key={i} className="py-2 px-4 mb-6">
                   <Card key={i} className=" text-base">
                     <CardHeader className="flex justify-between items-center">
@@ -202,7 +194,7 @@ const Singleblog = () => {
                     </CardBody>
                   </Card>
                 </div>
-              ))}
+              ))} */}
             </section>
             {/* Comment Section */}
           </article>
