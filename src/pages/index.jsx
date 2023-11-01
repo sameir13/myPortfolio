@@ -3,7 +3,7 @@ import lady from "../images/aunti.png";
 import graphic from "../images/graphic.png";
 
 const home = () => {
-  var cards = [1,2,3,4];
+  var cards = [1, 2, 3, 4];
   return (
     <div>
       <div className="px-4">
@@ -44,25 +44,27 @@ const home = () => {
           <div className="flex flex-col-reverse md:grid md:grid-flow-col-dense md:grid-rows-1 gap-6 max-w-[1200px] m-auto my-5">
             {/* Cards */}
             <div className="flex flex-wrap gap-4 w-full">
-              {cards.map((v,i)=>(
-
-              <div key={i} className="relative w-[290px] h-[200px] backdrop-blur-3xl rounded-lg bg-[#ffffff11] shadow-2xl">
-                <div className="w-full h-[100%]">
-                  <Image
-                    alt=""
-                    className="w-full h-full object-contain"
-                    src={graphic}
-                  ></Image>
-                </div>
-                <div className="absolute z-50 bottom-2 w-full  px-2 ">
-                  <div className="flex justify-between items-center p-1 rounded-lg backdrop-blur-xl bg-[#00000084] border border-[#0000001e]">
-                  <h2 className="text-xs">Graphic Design</h2>
-                  <button className="text-xs px-2 py-1 rounded-lg">
-                    Learn More
-                  </button>
+              {cards.map((v, i) => (
+                <div
+                  key={i}
+                  className="relative w-[290px] h-[200px] backdrop-blur-3xl rounded-lg bg-[#ffffff11] shadow-2xl"
+                >
+                  <div className="w-full h-[100%]">
+                    <Image
+                      alt=""
+                      className="w-full h-full object-contain"
+                      src={graphic}
+                    ></Image>
+                  </div>
+                  <div className="absolute z-50 bottom-2 w-full  px-2 ">
+                    <div className="flex justify-between items-center p-1 rounded-lg backdrop-blur-xl bg-[#00000084] border border-[#0000001e]">
+                      <h2 className="text-xs">Graphic Design</h2>
+                      <button className="text-xs px-2 py-1 rounded-lg">
+                        Learn More
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
               ))}
             </div>
             {/* Services info */}
