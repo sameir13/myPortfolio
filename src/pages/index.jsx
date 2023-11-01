@@ -44,7 +44,7 @@ const home = () => {
           <div className="flex flex-col-reverse md:grid md:grid-flow-col-dense md:grid-rows-1 gap-6 max-w-[1200px] m-auto my-5">
             {/* Cards */}
             <div className="flex flex-wrap gap-4 w-full">
-              {cards.map((v, i) => (
+              {cards?.map((v, i) => (
                 <div
                   key={i}
                   className="relative w-[290px] h-[200px] backdrop-blur-3xl rounded-lg bg-[#ffffff11] shadow-2xl"
