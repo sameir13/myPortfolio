@@ -24,7 +24,7 @@ export default function Sidebar() {
     },
   ];
   return (
-    <nav className="md:w-min w-full absolute md:sticky left-0 md:top-0 bottom-0 md:h-screen bg-[#000000eb] md:bg-[#0000007e] md:py-5 flex gap-28 md:flex-col z-50 justify-center md:justify-between">
+    <nav className="md:w-min w-full sticky md:sticky left-0 md:top-0 bottom-0 md:h-screen bg-[#000000eb] md:bg-[#0000007e] md:py-5 flex gap-28 md:flex-col z-50 justify-center md:justify-between">
       <ul className="flex md:flex-col gap-3">
         <li className="hidden md:block py-1 px-3">
           <i className="bx bx-shape-polygon rounded-full p-2 text-orange-400"></i>

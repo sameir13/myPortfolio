@@ -5,7 +5,7 @@ import {jwtVerify,SignJWT} from 'jose'
 async function GenAccessToken(data){
     var token = await new SignJWT(data)
     .setProtectedHeader({ alg: 'HS256' })
-    .setExpirationTime('2m')
+    .setExpirationTime('20m')
     .setIssuedAt()
     .sign(new TextEncoder().encode(process.env.SECRET_KEY));
 

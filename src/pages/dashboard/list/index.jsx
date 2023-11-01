@@ -6,7 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Layout from "../dashboardlayout";
 
-
 export default function App() {
   var [selectedKey, setkey] = useState([]);
   var [checks, setcheck] = useState(false);
@@ -60,7 +59,7 @@ export default function App() {
 
   return (
     <Layout>
-      <div className="px-4">
+      <div className="px-4 relative top-0">
         <ToastContainer
           position="top-right"
           autoClose={5000}
@@ -95,7 +94,7 @@ export default function App() {
             <thead></thead>
           </th>
           <tbody items={data.message}>
-            {data?.message?.map((v, i) => (
+            {/* {data?.message?.map((v, i) => (
               <tr key={i}>
                 <td>
                   <input
@@ -106,9 +105,7 @@ export default function App() {
                     }}
                   />
                 </td>
-                <td className="line-clamp-1 leading-10">
-                  {v.title}
-                </td>
+                <td className="line-clamp-1 leading-10">{v.title}</td>
                 <td>{v.authorname}</td>
                 <td className="text-right">
                   <button color="secondary">
@@ -116,7 +113,7 @@ export default function App() {
                   </button>
                 </td>
               </tr>
-            ))}
+            ))} */}
           </tbody>
         </table>
       </div>

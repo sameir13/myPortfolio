@@ -4,7 +4,6 @@ import { useForm, Controller } from "react-hook-form";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
-import { Select, SelectItem, Input } from "@nextui-org/react";
 import Image from 'next/image'
 
 const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
