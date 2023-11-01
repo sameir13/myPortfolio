@@ -103,16 +103,16 @@ const Addblog = () => {
           <form onSubmit={handleSubmit(submitForm)}>
             <div className="mt-4 space-y-6">
               <div className="col-span-full">
-                <Input type="text" placeholder="Title" {...register("title")} />
+                <input type="text" placeholder="Title" {...register("title")} />
               </div>
               <div className="col-span-full flex gap-2">
-                <Input
+                <input
                   type="text"
                   className="w-6/12"
                   placeholder="Subtitle"
                   {...register("subtitle")}
                 />
-                <Input
+                <input
                   type="text"
                   className="w-6/12"
                   placeholder="Author Name"
@@ -120,17 +120,17 @@ const Addblog = () => {
                 />
               </div>
               <div>
-                <Select
+                <select
                   label="Select a catagory"
                   className="w-6/12"
                   {...register("catagory")}
                 >
                   {catagories.map((v, i) => (
-                    <SelectItem key={i} value={v.name}>
+                    <option key={i} value={v.name}>
                       {v.name}
-                    </SelectItem>
+                    </option>
                   ))}
-                </Select>
+                </select>
               </div>
               <div className="col-span-full">
                 <label className="block mb-3 text-sm font-medium text-gray-500">

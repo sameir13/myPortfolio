@@ -5,15 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Layout from "../dashboardlayout";
-import {
-  Table,
-  TableHeader,
-  TableColumn,
-  TableBody,
-  TableRow,
-  TableCell,
-  Button,
-} from "@nextui-org/react";
+
 
 export default function App() {
   var [selectedKey, setkey] = useState([]);
@@ -85,27 +77,27 @@ export default function App() {
           <h2 className="text-6xl font-extrabold text-white">BLOG LIST</h2>
         </div>
         <div className="my-3 flex justify-end gap-4 px-4">
-          <Button onClick={() => checkin()}>
+          <button onClick={() => checkin()}>
             <i className="bx bxs-select-multiple"></i>
             Select All
-          </Button>
-          <Button onClick={() => del(selectedKey)} color="danger">
+          </button>
+          <button onClick={() => del(selectedKey)} color="danger">
             <i className="bx bxs-trash-alt"></i>
             Delete
-          </Button>
+          </button>
         </div>
 
-        <Table>
-          <TableHeader>
-            <TableColumn>Action</TableColumn>
-            <TableColumn>Title</TableColumn>
-            <TableColumn>Author</TableColumn>
-            <TableColumn></TableColumn>
-          </TableHeader>
-          <TableBody items={data.message}>
+        <table>
+          <th>
+            <thead>Action</thead>
+            <thead>Title</thead>
+            <thead>Author</thead>
+            <thead></thead>
+          </th>
+          <tbody items={data.message}>
             {data?.message?.map((v, i) => (
-              <TableRow key={i}>
-                <TableCell>
+              <tr key={i}>
+                <td>
                   <input
                     type="checkbox"
                     id="check"
@@ -113,20 +105,20 @@ export default function App() {
                       handleSelect(v.slug);
                     }}
                   />
-                </TableCell>
-                <TableCell className="line-clamp-1 leading-10">
+                </td>
+                <td className="line-clamp-1 leading-10">
                   {v.title}
-                </TableCell>
-                <TableCell>{v.authorname}</TableCell>
-                <TableCell className="text-right">
-                  <Button color="secondary">
+                </td>
+                <td>{v.authorname}</td>
+                <td className="text-right">
+                  <button color="secondary">
                     <i className="bx bxs-edit-alt"></i>
-                  </Button>
-                </TableCell>
-              </TableRow>
+                  </button>
+                </td>
+              </tr>
             ))}
-          </TableBody>
-        </Table>
+          </tbody>
+        </table>
       </div>
     </Layout>
   );
