@@ -4,7 +4,7 @@ import { useForm, Controller } from "react-hook-form";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
-import Image from 'next/image'
+import Image from "next/image";
 
 const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 
@@ -22,11 +22,7 @@ const Addblog = () => {
 
   // react hook from -----------------------------------
 
-  const { control, register, reset, handleSubmit } = useForm({
-    defaultValues: {
-      blogimg: "",
-    },
-  });
+  const { control, register, reset, handleSubmit } = useForm({});
 
   //  submitform function ---------------------------------
 
@@ -46,9 +42,6 @@ const Addblog = () => {
         toast.success(res.message);
         reset();
         setTemImg(null);
-        setTimeout(() => {
-          // Router.push("/home");
-        }, 2000);
       } else {
         toast.error(res.message);
       }
@@ -94,26 +87,26 @@ const Addblog = () => {
       />
       <div className=" relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-20 max-w-7xl">
         <div className="max-w-3xl m-auto">
-          <div className="flex flex-col">
-            <div>
-              <h2 className="text-4xl text-white font-bold">New Blog</h2>
-            </div>
-          </div>
           <form onSubmit={handleSubmit(submitForm)}>
             <div className="mt-4 space-y-6">
               <div className="col-span-full">
-                <input type="text" placeholder="Title" {...register("title")} />
+                <input
+                  type="text"
+                  className="w-full bg-transparent backdrop-blur-lg border-b py-1 px-2 rounded-sm capitalize"
+                  placeholder="Title"
+                  {...register("title")}
+                />
               </div>
               <div className="col-span-full flex gap-2">
                 <input
                   type="text"
-                  className="w-6/12"
+                  className="w-6/12 bg-transparent backdrop-blur-lg border-b py-1 px-2 rounded-sm capitalize"
                   placeholder="Subtitle"
                   {...register("subtitle")}
                 />
                 <input
                   type="text"
-                  className="w-6/12"
+                  className="w-6/12 bg-transparent backdrop-blur-lg border-b py-1 px-2 rounded-sm capitalize"
                   placeholder="Author Name"
                   {...register("authorname")}
                 />
@@ -121,7 +114,7 @@ const Addblog = () => {
               <div>
                 <select
                   label="Select a catagory"
-                  className="w-6/12"
+                  className="w-6/12 bg-transparent backdrop-blur-lg border-b py-1 px-2 rounded-sm"
                   {...register("catagory")}
                 >
                   {catagories.map((v, i) => (
@@ -132,31 +125,29 @@ const Addblog = () => {
                 </select>
               </div>
               <div className="col-span-full">
-                <label className="block mb-3 text-sm font-medium text-gray-500">
-                  Discription
-                </label>
                 <Controller
                   name="description"
                   control={control}
                   defaultValue=""
                   render={({ field }) => (
-                    <JoditEditor
-                      {...field}
-                      className="text-black"
-                      config={{ theme: "dark" }}
-                    />
+                    <JoditEditor {...field} config={{ theme: "dark" }} />
                   )}
                 />
               </div>
               {tempImg ? (
                 <div className="w-full border">
-                  <Image alt="" src={URL.createObjectURL(tempImg)} />
+                  <Image
+                    width={700}
+                    height={700}
+                    alt=""
+                    src={URL.createObjectURL(tempImg)}
+                  />
                   <i onClick={() => setTemImg(null)} className="bx bx-x"></i>
                 </div>
               ) : (
-                <div className="w-full border rounded-xl  p-5 text-center bg-[#f9f9f987]">
+                <div className="rounded-sm  p-5 text-center bg-[#6553458e]">
                   <label
-                    className="block mb-3 text-sm font-medium text-black"
+                    className="block mb-3 font-medium "
                     htmlFor="image"
                   >
                     <div>
@@ -177,7 +168,7 @@ const Addblog = () => {
               <div className="col-span-full">
                 <button
                   type="submit"
-                  className="items-center justify-center w-full px-6 py-2.5 text-center text-white duration-200 bg-black border-2 border-black rounded-full nline-flex hover:bg-transparent hover:border-white hover:text-white focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
+                  className="items-center justify-center w-full px-6 py-2.5 text-center text-white duration-200 bg-black border-2 border-black rounded-sm nline-flex hover:bg-transparent hover:border-white hover:text-white focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
                 >
                   Submit your request
                 </button>

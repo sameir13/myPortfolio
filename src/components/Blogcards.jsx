@@ -3,60 +3,77 @@ import { Blogfetch } from "@/hooks/queryfetchblogs";
 import Link from "next/link";
 
 export default function Cards() {
-  function createMarkup(c) {
-    return { __html: c };
-  }
-
+  var loadskeleton = [1, 2, 3, 4, 5];
   const { isLoading, error, data } = Blogfetch();
 
-  if (isLoading) return <p className="text-white">Loading....</p>;
+  if (isLoading) {
+    return (
+      <div className="flex gap-6 flex-wrap justify-between">
+        {loadskeleton.map((i) => (
+          <div key={i} class="flex items-center space-x-2">
+            <div class="animate-pulse bg-gray-500 h-12 w-12 rounded-full"></div>
+            <div class="space-y-2">
+              <div class="animate-pulse rounded-md bg-gray-500 h-4 w-[200px]"></div>
+              <div class="animate-pulse rounded-md bg-gray-500 h-4 w-[170px]"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
 
-  if (error) return <p className="text-white">Error {error.message} </p>;
+  if (error)
+    return (
+      <div className="grid place-content-center h-[30vh]">
+        <div className="flex justify-between items-center gap-4 text-yellow-300">
+          <i class="bx bx-error"></i>
+          <span>Somthing Went Wrong</span>
+        </div>
+      </div>
+    );
 
   return (
     <>
-      <div className="flex flex-wrap gap-2">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {data?.message?.map((v, i) => (
           //*  Blog Card -----------------------------------------------------//
-          <div
+          <Link
+            href={`/blogs/${v.slug}`}
             key={i}
-            className="bg-gray-900 group hover:bg-slate-700 duration-1000 rounded-xl max-w-[16rem]"
+            className="group duration-1000 rounded-xl max-w-[16rem]"
           >
             {/*//? Card Image ---------------------------------------------- */}
-            <div className="p-2 overflow-hidden">
-              <div className="overflow-hidden max-[300px]: rounded-md">
-                <img
-                  width={700}
-                  height={700}
-                  alt="Card background"
-                  className="object-cover w-full  group-hover:scale-105 duration-100"
-                  src={v.blogimg}
-                />
+            <div className="overflow-hidden">
+              <div className="overflow-hidden max-w-[300px]  p-2 bg-[#6553458e] rounded-lg mb-2 backdrop-blur-3xl">
+                <div className="overflow-hidden rounded-lg">
+                  <img
+                    width={700}
+                    height={700}
+                    alt="Card background"
+                    className="object-cover w-full h-auto aspect-square rounded-lg  group-hover:scale-105 duration-100"
+                    src={v.blogimg}
+                  />
+                </div>
               </div>
             </div>
             {/*//? --------------------------------------------------------- */}
 
             {/*//? Card Info ----------------------------------------------- */}
-            <div className="overflow-visible py-2 px-4">
-              <div className="flex justify-between mb-3">
-                <small className="text-default-500">{v.authorname}</small>
-                <small className="text-default-500">
-                  {new Date().toDateString(v.createdAt)}
+            <div className="overflow-visible py-2 px-4 rounded-lg bg-[#6553458e] backdrop-blur-3xl min-h-[100px]">
+              <div className="flex justify-between mb-3 items-center">
+                <small className="text-default-500 capitalize bg-[#ffffffae] text-black rounded-full py-1 px-2">
+                  {v.authorname}
                 </small>
+                <time className="text-xs text-orange-400">
+                  {new Date().toDateString(v.createdAt)}
+                </time>
               </div>
-              <h4 className="font-bold text-large text-clip line-clamp-2 leading-tight mb-2">
+              <h4 className="font-bold text-large text-clip line-clamp-2 leading-tight mb-2 capitalize">
                 {v.title}
               </h4>
-              <div
-                className="text-tiny uppercase font-normal text-clip line-clamp-3"
-                dangerouslySetInnerHTML={createMarkup(v.description)}
-              />
-              <Link href={`/blogs/${v.slug}`}>
-                <button className="mt-5">Read More</button>
-              </Link>
             </div>
             {/*//? --------------------------------------------------------- */}
-          </div>
+          </Link>
         ))}
       </div>
     </>

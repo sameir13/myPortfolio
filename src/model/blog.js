@@ -11,7 +11,7 @@ const blogschema = new mongoose.Schema(
     },
     description: {
       type: String,
-      required: [false, "Discription is Required!"],
+      required: [true, "Discription is Required!"],
     },
     authorname: {
       type: String,

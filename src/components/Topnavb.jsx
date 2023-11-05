@@ -22,8 +22,8 @@ export default function Topbar() {
 
   return (
     <>
-      <nav className="relative  max-w-[1200px] m-auto">
-        <div className=" py-4 flex justify-between items-center max-w-[1200px] m-auto">
+      <nav className="relative m-auto">
+        <div className="py-4 px-4 flex justify-between items-center max-w-[1500px] m-auto">
         <Link className="text-xl font-bold leading-none" href="/home">
           Quantam Craft
         </Link>
