@@ -1,9 +1,9 @@
-import Layoutd from "../layoutd";
-import { pfetch } from "@/hooks/queryfetchProjects";
-import { useState, useRef } from "react";
+import { Usefetch } from "@/hooks/queryfetchProjects";
+import axios from "axios";
+import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
+import Layoutd from "../layoutd";
 
 export default function App() {
   var [selectedKey, setkey] = useState([]);
@@ -53,7 +53,7 @@ export default function App() {
   // ! Deleting From the List --------------------------------------
   // ? Fetching Data -----------------------------------------------
 
-  const { isLoading, error, data } = pfetch();
+  const { isLoading, error, data } = Usefetch();
 
   if (isLoading) return <p className="text-white">Loading....</p>;
 

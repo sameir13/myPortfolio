@@ -1,9 +1,9 @@
-import { pfetch } from "@/hooks/queryfetchProjects";
+import { Usefetch } from "@/hooks/queryfetchProjects";
 import Link from "next/link";
 
 export default function ProjectsCards() {
   var loadskeleton = [1, 2, 3, 4, 5];
-  const { isLoading, error, data } = pfetch();
+  const { isLoading, error, data } = Usefetch();
   console.log(data);
   if (isLoading) {
     return (
