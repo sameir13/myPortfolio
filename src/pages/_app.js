@@ -1,21 +1,18 @@
-import Topnavb from "@/components/Nav";
 import "@/styles/404.css";
 import "@/styles/globals.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "react-toastify/dist/ReactToastify.css";
 import Layout from "./layout";
-import { useRouter } from "next/router";
-import Footer from "@/components/Footer";
 
 const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }) {
-  const Pathname = useRouter();
-  const arr = [
-    "/404",
-    "/dashboard",
-    `/dashboard${Pathname.pathname.split("/dashboard")[1]}`,
-  ];
+  // const Pathname = useRouter();
+  // const arr = [
+  //   "/404",
+  //   "/dashboard",
+  //   `/dashboard${Pathname.pathname.split("/dashboard")[1]}`,
+  // ];
   return (
     <Layout>
       <QueryClientProvider client={queryClient}>
