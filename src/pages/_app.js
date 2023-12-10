@@ -19,9 +19,9 @@ export default function App({ Component, pageProps }) {
   return (
     <Layout>
       <QueryClientProvider client={queryClient}>
-        {!arr.includes(Pathname.pathname) ? <Topnavb /> : null}
+        {/* {!arr.includes(Pathname.pathname) ? <Topnavb /> : null} */}
         <Component {...pageProps} />
-        {!arr.includes(Pathname.pathname) ? <Footer /> : null}
+        {/* {!arr.includes(Pathname.pathname) ? <Footer /> : null} */}
       </QueryClientProvider>
     </Layout>
   );

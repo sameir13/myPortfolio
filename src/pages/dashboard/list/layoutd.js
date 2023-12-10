@@ -10,3 +10,10 @@ const layoutd = ({ children }) => {
 };
 
 export default layoutd;
+
+
+const Introduction = () => {
+
+  console.log("Hello, my name is Usman")
+  
+}

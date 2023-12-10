@@ -12,13 +12,11 @@
   padding: 0;
 }
 ::-webkit-scrollbar {
-  /* display: none; */
+  display: none;
 }
-html {
-  background-image: url("../images/texture.jpg");
-}
+
 body {
-  background-color: #0000006d;
+  background-color: #000000;
   backdrop-filter: blur(16px);
   color: white;
 }
@@ -84,10 +82,15 @@ th {
   background-color: #855c228d;
 }
 table {
-  border: 1px solid rgb(66, 63, 63);;
+  border: 1px solid rgb(66, 63, 63);
   margin: 0;
 }
 .dark {
   min-height: 100vh;
   width: 100%;
+}
+/* text shadow --------------------------- */
+.text-shadow :hover {
+  text-shadow: 3px 3px 20px #ff99cc,
+  -2px 1px 30px #ff99cc;
 }
