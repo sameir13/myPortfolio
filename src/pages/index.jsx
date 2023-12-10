@@ -10,7 +10,7 @@ const home = () => {
         </audio>
         <section className="relative flex gap-24 justify-center flex-col items-center h-screen">
           <div className="absolute h-full w-full">
-            <Spline scene="https://prod.spline.design/ptTLCnxS9khl1cx7/scene.splinecode" />
+            <Spline scene="/forest_lights_copy.spline" />
           </div>
           <div className="relative z-20 font-serif">
             {/* <h1 className="text-6xl mb-10 border-b-2 pb-4">Welcome</h1> */}
