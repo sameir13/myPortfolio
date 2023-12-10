@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Topbar() {
   const navlink = [
-    { name: "Projects", link: "/blogs" },
+    { name: "Projects", link: "/projects" },
     { name: "About Me", link: "/blogs" },
     { name: "Reviews", link: "/blogs" },
     { name: "Contact ", link: "/blogs" },
@@ -26,7 +26,7 @@ export default function Topbar() {
                   className="tracking-[0.5rem] relative group-hover:-translate-y-1:"
                   href={v.link}
                 >
-                  <i class="bx bx-chevron-right grid place-content-center opacity-0 absolute top-0  h-full -left-10  group-hover:opacity-100 duration-75"></i>
+                  <i className="bx bx-chevron-right grid place-content-center opacity-0 absolute top-0  h-full -left-10  group-hover:opacity-100 duration-75"></i>
                   {v.name}
                 </Link>
               </motion.li>

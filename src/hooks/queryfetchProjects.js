@@ -3,10 +3,10 @@ import { useQuery } from "@tanstack/react-query";
 
 // ? Fetching Blogs Data ----------------------------------------------------------/
 
-export const Blogfetch = () => {
+export const pfetch = () => {
   return useQuery({
     queryKey: ["repoData"],
-    queryFn: async () => await fetch("/api/blog").then((res) => res.json()),
+    queryFn: async () => await fetch("/api/projects").then((res) => res.json()),
     refetchInterval: 5000,
   });
 };

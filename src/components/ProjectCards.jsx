@@ -1,20 +1,19 @@
-import React from "react";
-import { Blogfetch } from "@/hooks/queryfetchblogs";
+import { pfetch } from "@/hooks/queryfetchProjects";
 import Link from "next/link";
 
-export default function Cards() {
+export default function ProjectsCards() {
   var loadskeleton = [1, 2, 3, 4, 5];
-  const { isLoading, error, data } = Blogfetch();
-
+  const { isLoading, error, data } = pfetch();
+  console.log(data);
   if (isLoading) {
     return (
       <div className="flex gap-6 flex-wrap justify-between">
         {loadskeleton.map((i) => (
-          <div key={i} class="flex items-center space-x-2">
-            <div class="animate-pulse bg-gray-500 h-12 w-12 rounded-full"></div>
-            <div class="space-y-2">
-              <div class="animate-pulse rounded-md bg-gray-500 h-4 w-[200px]"></div>
-              <div class="animate-pulse rounded-md bg-gray-500 h-4 w-[170px]"></div>
+          <div key={i} className="flex items-center space-x-2">
+            <div className="animate-pulse bg-gray-500 h-12 w-12 rounded-full"></div>
+            <div className="space-y-2">
+              <div className="animate-pulse rounded-md bg-gray-500 h-4 w-[200px]"></div>
+              <div className="animate-pulse rounded-md bg-gray-500 h-4 w-[170px]"></div>
             </div>
           </div>
         ))}
@@ -26,7 +25,7 @@ export default function Cards() {
     return (
       <div className="grid place-content-center h-[30vh]">
         <div className="flex justify-between items-center gap-4 text-yellow-300">
-          <i class="bx bx-error"></i>
+          <i className="bx bx-error"></i>
           <span>Somthing Went Wrong</span>
         </div>
       </div>
@@ -36,7 +35,7 @@ export default function Cards() {
     <>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {data?.message?.map((v, i) => (
-          //*  Blog Card -----------------------------------------------------//
+          //*  Card -----------------------------------------------------//
           <Link
             href={`/blogs/${v.slug}`}
             key={i}
@@ -51,7 +50,7 @@ export default function Cards() {
                     height={700}
                     alt="Card background"
                     className="object-cover w-full h-auto aspect-square rounded-lg  group-hover:scale-105 duration-100"
-                    src={v.blogimg}
+                    src={v.img}
                   />
                 </div>
               </div>

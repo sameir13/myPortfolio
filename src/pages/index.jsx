@@ -1,5 +1,5 @@
 import Spline from "@splinetool/react-spline";
-import Navbar from "@/components/Topnavb";
+import Navbar from "@/components/Nav";
 import { motion } from "framer-motion";
 
 const home = () => {

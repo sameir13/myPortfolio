@@ -1,4 +1,4 @@
-import Topnavb from "@/components/Topnavb";
+import Topnavb from "@/components/Nav";
 import "@/styles/404.css";
 import "@/styles/globals.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

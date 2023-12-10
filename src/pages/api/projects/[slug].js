@@ -1,4 +1,4 @@
-import Model from "@/model/blog";
+import Model from "@/model/project";
 import dbConnect from "@/Config/DBconfi";
 
 dbConnect();

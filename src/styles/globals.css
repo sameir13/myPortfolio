@@ -28,3 +28,12 @@ body {
     3px 3px 20px rgb(228, 111, 33),
     -2px 1px 30px rgb(227, 118, 29);
 }
+/* table ----------------------------------- */
+
+th {
+  padding: 10px 15px;
+}
+td {
+  padding: 15px 15px;
+  border-bottom: 2px solid rgb(255, 94, 0);
+}

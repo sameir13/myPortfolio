@@ -2,26 +2,22 @@ import mongoose from "mongoose";
 
 // ? Creating New Schema --------------------------------------------------------------/
 
-const blogschema = new mongoose.Schema(
+const projectschema = new mongoose.Schema(
   {
     title: {
       type: String,
       required: [true, "Title is Required!"],
       trim: true,
     },
-    description: {
+    desc: {
       type: String,
       required: [true, "Discription is Required!"],
-    },
-    authorname: {
-      type: String,
-      required: [true, "Authorname is Required!"],
     },
     catagory: {
       type: String,
       required: [true, "Catagory is Required!"],
     },
-    blogimg: {
+    img: {
       type: String,
       required: true,
     },
@@ -36,15 +32,8 @@ const blogschema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    comments: [
-      {
-        username: { type: String, trim: true },
-        comment: { type: String, trim: true },
-      },
-      { timestamps: true },
-    ],
   },
   { timestamps: true }
 );
 // ? Checking If Collection is Already Created ---------------------------------------/
-export default mongoose?.models?.blog || mongoose?.model("blog", blogschema);
+export default mongoose?.models?.Project || mongoose?.model("Project", projectschema);

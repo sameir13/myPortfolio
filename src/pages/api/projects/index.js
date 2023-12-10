@@ -1,4 +1,4 @@
-import Model from "@/model/blog";
+import Model from "@/model/project";
 import dbConnect from "@/Config/DBconfi";
 
 dbConnect();
@@ -51,7 +51,7 @@ export default async function handler(req, res) {
       } catch (error) {
         console.log(error);
       }
-        // ! Error Checking Errors ----------------------------/
+      // ! Error Checking Errors ----------------------------/
       break;
     // * Getting All Blogs ------------------------------------------------------/
 

@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "@/components/sidebar";
+
 
 const layoutd = ({ children }) => {
   return (
@@ -12,8 +12,3 @@ const layoutd = ({ children }) => {
 export default layoutd;
 
 
-const Introduction = () => {
-
-  console.log("Hello, my name is Usman")
-  
-}

@@ -1,6 +1,6 @@
-import Layoutd from "./layoutd";
-import { Blogfetch } from "@/hooks/queryfetchblogs";
-import{ useState, useRef } from "react";
+import Layoutd from "../layoutd";
+import { pfetch } from "@/hooks/queryfetchProjects";
+import { useState, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
@@ -8,20 +8,6 @@ import axios from "axios";
 export default function App() {
   var [selectedKey, setkey] = useState([]);
   var [checks, setcheck] = useState(false);
-
-  // ? Dialog -------------------------------------------------------
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const dialogRef = useRef(null);
-
-  const openDialog = () => {
-    setIsDialogOpen(true);
-    dialogRef.current.showModal();
-  };
-
-  const closeDialog = () => {
-    setIsDialogOpen(false);
-    dialogRef.current.close();
-  };
 
   // * Selecting From the List through checkbox---------------------
 
@@ -42,7 +28,7 @@ export default function App() {
 
   // ! Deleting From the List --------------------------------------
   const deleting = async (slug) => {
-    var res = await axios.delete(`/api/blog/${slug}`);
+    var res = await axios.delete(`/api/projects/${slug}`);
     if (res.data.success) {
       toast.success(res.data.message);
     }
@@ -67,7 +53,7 @@ export default function App() {
   // ! Deleting From the List --------------------------------------
   // ? Fetching Data -----------------------------------------------
 
-  const { isLoading, error, data } = Blogfetch();
+  const { isLoading, error, data } = pfetch();
 
   if (isLoading) return <p className="text-white">Loading....</p>;
 
@@ -109,17 +95,18 @@ export default function App() {
           </button>
         </div>
         <section className="data-table overflow-x-auto py-4   w-full">
-          <table className="min-w-[1000px] w-full border">
-            <tr>
-              <th className="w-1">Action</th>
-              <th className="text-left">Title</th>
-              <th>Author</th>
-              <th></th>
-            </tr>
+          <table className="min-w-[1000px] w-full">
+            <thead className="bg-slate-500">
+              <tr>
+                <th className="w-1">Action</th>
+                <th className="text-left px-4">Title</th>
+                <th></th>
+              </tr>
+            </thead>
             <tbody items={data.message}>
               {data?.message?.map((v, i) => (
                 <tr key={i}>
-                  <td className="text-center">
+                  <td>
                     <input
                       type="checkbox"
                       id="check"
@@ -128,8 +115,7 @@ export default function App() {
                       }}
                     />
                   </td>
-                  <td className="line-clamp-1">{v.title}</td>
-                  <td className="text-center">{v.authorname}</td>
+                  <td>{v.title}</td>
                   <td>
                     <div className="flex justify-around">
                       <button>
@@ -145,13 +131,6 @@ export default function App() {
             </tbody>
           </table>
         </section>
-        <dialog ref={dialogRef} className="place-content-center bg-[#00000073] text-white">
-          <p>Greetings, one and all!</p>
-          <form method="dialog">
-            <button>OK</button>
-          </form>
-        </dialog>
-        <button onClick={openDialog}>Show the dialog</button>
       </div>
     </Layoutd>
   );
