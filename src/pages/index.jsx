@@ -14,10 +14,10 @@ const home = () => {
         </div>
         <div className="relative z-20 font-serif">
           <motion.h1
-            initial={{ scale: 2.5, y: 150 }}
+            initial={{ scale: 2, y: 150 }}
             animate={{ scale: 1, y: 0 }}
             transition={{ duration: 1, delay: 10 }}
-            className="text-6xl mb-10 border-b-2 pb-4"
+            className="max-md:text-4xl text-6xl mb-10 border-b-2 pb-4"
           >
             Quntam Craft
           </motion.h1>

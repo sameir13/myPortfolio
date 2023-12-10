@@ -18,7 +18,7 @@ export default function Topbar() {
               <motion.li
                 initial={{ x: -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 10 }}
+                transition={{ duration: 0.5, delay: 5 }}
                 key={i}
                 className="group  duration-100 text-shadow"
               >

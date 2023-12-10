@@ -76,7 +76,7 @@ export default function App() {
           theme="dark"
         />
         <div className="grid h-60 w-full place-items-center ">
-          <h2 className="text-6xl font-extrabold text-white">BLOG LIST</h2>
+          <h2 className="text-6xl font-extrabold text-white">PROJECT LIST</h2>
         </div>
         <div className="text-sm my-3 flex justify-end gap-4 px-4">
           <button
