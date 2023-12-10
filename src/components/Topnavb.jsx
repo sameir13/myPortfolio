@@ -12,7 +12,7 @@ export default function Topbar() {
   return (
     <>
       <nav className="flex justify-start items-center">
-        <motion.ul className="text-3xl space-y-6">
+        <motion.ul className="text-3xl space-y-7">
           {navlink.map((v, i) => {
             return (
               <motion.li
@@ -20,9 +20,12 @@ export default function Topbar() {
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 10 }}
                 key={i}
-                className="group hover:-translate-y-1 duration-100 text-shadow"
+                className="group  duration-100 text-shadow"
               >
-                <Link className="tracking-widest relative" href={v.link}>
+                <Link
+                  className="tracking-[0.5rem] relative group-hover:-translate-y-1:"
+                  href={v.link}
+                >
                   <i class="bx bx-chevron-right grid place-content-center opacity-0 absolute top-0  h-full -left-10  group-hover:opacity-100 duration-75"></i>
                   {v.name}
                 </Link>

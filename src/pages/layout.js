@@ -9,7 +9,6 @@ const Layout = ({children}) => {
   return (
     <AnimatePresence mode="wait">
       <motion.main
-        className="dark text-foreground bg-background"
         key={router.route}
         initial="initialState"
         animate="animateState"
