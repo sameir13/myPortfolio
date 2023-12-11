@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const index = () => {
   const navlink = [
     { name: "Projects", link: "/projects" },
-    { name: "About Me", link: "/blogs" },
+    { name: "About Me", link: "/about" },
     { name: "Reviews", link: "/blogs" },
     { name: "Contact ", link: "/blogs" },
   ];
