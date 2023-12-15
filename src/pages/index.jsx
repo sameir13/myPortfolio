@@ -1,8 +1,16 @@
-import Spline from "@splinetool/react-spline";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {  useRef } from "react";
 
 const index = () => {
+  const audioRef = useRef(null);
+
+  const playAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
+  };
+
   const navlink = [
     { name: "Projects", link: "/projects" },
     { name: "About Me", link: "/about" },
@@ -11,13 +19,10 @@ const index = () => {
   ];
   return (
     <>
-      <audio className="relative z-50" autoPlay>
+      <audio id="audio" ref={audioRef} className="relative z-50">
         <source src="./bg.mp3" />
       </audio>
       <section className="relative flex gap-24 justify-center flex-col items-center h-screen">
-        <div className="absolute h-full w-full">
-          <Spline scene="/forest_lights_copy.spline" />
-        </div>
         <div className="relative z-20 font-serif">
           <motion.h1
             initial={{ scale: 2, y: 150 }}
@@ -32,11 +37,13 @@ const index = () => {
               {navlink.map((v, i) => {
                 return (
                   <motion.li
+                    id="target"
                     initial={{ x: -100, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 1, delay: 10 }}
                     key={i}
                     className="group  duration-100 text-shadow"
+                    onMouseEnter={playAudio}
                   >
                     <Link
                       className="tracking-[0.5rem] relative group-hover:-translate-y-1:"
