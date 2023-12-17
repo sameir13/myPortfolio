@@ -1,16 +1,28 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 const Index = () => {
   const audioRef = useRef(null);
 
   function playAudio() {
     if (audioRef.current) {
-      console.log("hi");
-      audioRef.current.play();
+      audioRef.current.play().catch((error) => {
+        console.error("Audio playback error:", error);
+      });
     }
   }
+  function unmuteAudio() {
+    if (audioRef.current) {
+      audioRef.current.muted = false;
+    }
+  }
+  useEffect(() => {
+    // Muting the audio on initial load
+    if (audioRef.current) {
+      audioRef.current.muted = true;
+    }
+  }, []);
 
   const navlink = [
     { name: "Projects", link: "/projects" },
@@ -24,7 +36,7 @@ const Index = () => {
         <source src="./bg.mp3" />
       </audio>
       <audio autoPlay className="relative z-50">
-        <source src="./rain.mp3" />
+        <source src="./rain.mp3" type="audio/mp3" />
       </audio>
       <section className="relative flex gap-24 justify-center flex-col items-center h-screen">
         <video
@@ -60,7 +72,10 @@ const Index = () => {
                     <Link
                       className="tracking-[0.5rem] relative group-hover:-translate-y-1:"
                       href={v.link}
-                      onMouseEnter={() => playAudio()}
+                      onMouseEnter={() => {
+                        playAudio();
+                        unmuteAudio();
+                      }}
                     >
                       <i className="bx bx-chevron-right grid place-content-center opacity-0 absolute top-0  h-full -left-10  group-hover:opacity-100 duration-75"></i>
                       {v.name}
