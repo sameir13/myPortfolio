@@ -5,11 +5,12 @@ import { useRef } from "react";
 const Index = () => {
   const audioRef = useRef(null);
 
-  const playAudio = () => {
+  function playAudio() {
     if (audioRef.current) {
+      console.log("hi");
       audioRef.current.play();
     }
-  };
+  }
 
   const navlink = [
     { name: "Projects", link: "/projects" },
@@ -59,7 +60,7 @@ const Index = () => {
                     <Link
                       className="tracking-[0.5rem] relative group-hover:-translate-y-1:"
                       href={v.link}
-                      onMouseEnter={playAudio()}
+                      onMouseEnter={() => playAudio()}
                     >
                       <i className="bx bx-chevron-right grid place-content-center opacity-0 absolute top-0  h-full -left-10  group-hover:opacity-100 duration-75"></i>
                       {v.name}
