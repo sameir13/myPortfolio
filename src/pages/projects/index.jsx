@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 
-const index = () => {
+const Index = () => {
 
   let [img, setImg] = useState();
 
@@ -65,4 +65,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

@@ -2,8 +2,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 
-const index = () => {
+const Index = () => {
   const audioRef = useRef(null);
+
 
   const playAudio = () => {
     if (audioRef.current) {
@@ -74,4 +75,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
