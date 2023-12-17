@@ -9,19 +9,19 @@ const projectschema = new mongoose.Schema(
       required: [true, "Title is Required!"],
       trim: true,
     },
-    desc: {
-      type: String,
-      required: [true, "Discription is Required!"],
-    },
+    // desc: {
+    //   type: String,
+    //   required: [true, "Discription is Required!"],
+    // },
     catagory: {
       type: String,
       required: [true, "Catagory is Required!"],
     },
     img: {
-      type: String,
+      type: [],
       required: true,
     },
-    slug: {
+    link: {
       type: String,
       required: true,
       unique: true,
@@ -36,4 +36,5 @@ const projectschema = new mongoose.Schema(
   { timestamps: true }
 );
 // ? Checking If Collection is Already Created ---------------------------------------/
-export default mongoose?.models?.Project || mongoose?.model("Project", projectschema);
+export default mongoose?.models?.Project ||
+  mongoose?.model("Project", projectschema);

@@ -6,26 +6,17 @@ dbConnect();
 export default async function handler(req, res) {
   switch (req.method) {
     case "POST":
-      // * Creating New Blog ------------------------------------------------------/
+      // * Creating New Project ------------------------------------------------------/
       try {
-        // : Generating Slug ---------------------------------/
-        var slug = req.body.title
-          .trim()
-          .toLowerCase()
-          .replace(/ /g, "-")
-          .replace(/[^\w-]+/g, "")
-          .replace(/--/g, "-");
-        // : Generating Slug ---------------------------------/
-
-        // : Creating Blog -----------------------------------/
+        // : Creating Project -----------------------------------/
 
         const body = await Model.create({ ...req.body, slug });
 
         res.status(201).json({
           success: true,
-          message: "Blog Added",
+          message: "Project Have been Added",
         });
-        // : Creating Blog -----------------------------------/
+        // : Creating Project -----------------------------------/
 
         // ! Error Checking ----------------------------------/
       } catch (error) {
@@ -36,24 +27,51 @@ export default async function handler(req, res) {
       }
       // ! Error Checking ----------------------------------/
       break;
-    // * Creating New Blog ------------------------------------------------------/
+    // * Creating New Project ------------------------------------------------------/
+
+    // * Getting All Projects ------------------------------------------------------/
     case "GET":
-      // * Getting All Blogs ------------------------------------------------------/
-      // :Finding Blogs -------------------------------------/
       try {
+        // :Finding Projects -------------------------------------/
         const body = await Model.find().sort({ createdAt: -1 });
         res.status(201).json({
           success: true,
           message: body,
+          // :Finding projects -------------------------------------/
         });
-        // :Finding Blogs -------------------------------------/
         // ! Error Checking Errors ----------------------------/
       } catch (error) {
         console.log(error);
       }
-      // ! Error Checking Errors ----------------------------/
       break;
-    // * Getting All Blogs ------------------------------------------------------/
+    // ! Error Checking Errors ----------------------------/
+
+    // * Getting All projects ------------------------------------------------------/
+
+    // : Deleting Project ----------------------------------/
+
+    case "DELETE":
+      try {
+        const Project = await Model.findOne({
+          _id: req.query._id,
+        });
+        if (!Project) {
+          res.status(404).json({ success: false, message: "Project Not Found" });
+        } else {
+          await Model.findByIdAndDelete(Project._id);
+          res.status(200).json({
+            success: true,
+            message: "Your Project has been deleted successfuly",
+          });
+        }
+
+        // ! Error Checking -----------------------------------/
+      } catch (err) {
+        res.status(err);
+        // ! Error Checking ---------------------------------------/
+      }
+
+    // : Deleting Project ----------------------------------/
 
     default:
       break;

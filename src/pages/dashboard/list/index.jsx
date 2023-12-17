@@ -27,8 +27,8 @@ export default function App() {
   // * Selecting From the List through checkbox---------------------
 
   // ! Deleting From the List --------------------------------------
-  const deleting = async (slug) => {
-    var res = await axios.delete(`/api/projects/${slug}`);
+  const deleting = async (id) => {
+    var res = await axios.delete(`/api/projects/${id}`);
     if (res.data.success) {
       toast.success(res.data.message);
     }
@@ -115,7 +115,7 @@ export default function App() {
                       type="checkbox"
                       id="check"
                       onChange={() => {
-                        handleSelect(v.slug);
+                        handleSelect(v._id);
                       }}
                     />
                   </td>
@@ -125,7 +125,7 @@ export default function App() {
                       <button>
                         <i className="bx bxs-edit-alt"></i>
                       </button>
-                      <button onClick={() => deleting(v.slug)}>
+                      <button onClick={() => deleting(v._id)}>
                         <i class="bx bxs-trash-alt text-red-600"></i>
                       </button>
                     </div>
