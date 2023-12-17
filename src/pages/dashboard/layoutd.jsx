@@ -3,7 +3,7 @@ import Link from "next/link";
 const layoutd = ({ children }) => {
   const navlink = [
     { name: "Dashboard", link: "/dashboard", i: "bx bxs-dashboard" },
-    { name: "From", link: "/dashboard/form", i: "bx bxs-add-to-queue" },
+    { name: "Form", link: "/dashboard/form", i: "bx bxs-add-to-queue" },
     { name: "List ", link: "/dashboard/list", i: "bx bx-table" },
     { name: "About", link: "/dashboard/about", i: "bx bxs-add-to-queue" },
   ];

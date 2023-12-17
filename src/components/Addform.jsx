@@ -118,6 +118,14 @@ const Addblog = () => {
             </select>
           </div>
           <div className="col-span-full">
+            <input
+              type="text"
+              className="w-full bg-transparent  border-b py-1 px-2 rounded-sm capitalize"
+              placeholder="Project link..."
+              {...register("desc")}
+            />
+          </div>
+          <div className="col-span-full">
             <textarea
               type="text"
               className="w-full bg-transparent  border-b py-1 px-2 rounded-sm capitalize"
@@ -126,14 +134,36 @@ const Addblog = () => {
             />
           </div>
           {tempImg ? (
-            <div className="w-full border">
-              <Image
-                width={700}
-                height={700}
-                alt=""
-                src={URL.createObjectURL(tempImg)}
-              />
-              <i onClick={() => setTemImg(null)} className="bx bx-x"></i>
+            <div className="flex">
+              <div className="w-1/2 relative border aspect-video">
+                <Image
+                  width={700}
+                  height={700}
+                  alt="upload"
+                  className="w-full h-full object-cover"
+                  src={URL.createObjectURL(tempImg)}
+                />
+                <i
+                  onClick={() => setTemImg(null)}
+                  className="bx bx-x absolute top-2 right-2 bg-[#00000083] p-2 rounded-full"
+                ></i>
+              </div>
+              <div className="rounded-sm  p-5 text-center flex justify-center items-center bg-[#6553458e] w-1/2">
+                <label className="block mb-3 font-medium" htmlFor="image">
+                  <div>
+                    <i className="bx bx-cloud-upload"></i>
+                  </div>
+                  <div>Upload Image</div>
+                </label>
+                <input
+                  type="file"
+                  hidden
+                  id="image"
+                  onChange={(e) => {
+                    setTemImg(e.target.files[0]);
+                  }}
+                />
+              </div>
             </div>
           ) : (
             <div className="rounded-sm  p-5 text-center bg-[#6553458e]">
@@ -141,7 +171,7 @@ const Addblog = () => {
                 <div>
                   <i className="bx bx-cloud-upload"></i>
                 </div>
-                <div>Upload Image</div>
+                <div>Upload Logo</div>
               </label>
               <input
                 type="file"
