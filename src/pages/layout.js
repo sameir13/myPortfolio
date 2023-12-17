@@ -2,8 +2,7 @@ import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 
-const Layout = ({children}) => {
-
+const Layout = ({ children }) => {
   const router = useRouter();
 
   return (

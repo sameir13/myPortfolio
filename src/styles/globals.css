@@ -17,7 +17,8 @@
 }
 
 body {
-  background-color: #000000;
+  background-color: #0b0c10;
+
   backdrop-filter: blur(16px);
   color: white;
 }
@@ -25,8 +26,8 @@ body {
 /* text shadow --------------------------- */
 .text-shadow :hover {
   text-shadow:
-    3px 3px 20px rgb(228, 111, 33),
-    -2px 1px 30px rgb(227, 118, 29);
+    3px 3px 20px rgb(255, 255, 255),
+    -2px 1px 30px rgb(255, 255, 255);
 }
 /* table ----------------------------------- */
 
@@ -36,4 +37,22 @@ th {
 td {
   padding: 15px 15px;
   border-bottom: 2px solid rgb(255, 94, 0);
+}
+/* project showcase card ----------------------------------- */
+.showcase{
+  animation: hover 3s linear infinite;
+}
+@keyframes hover {
+  0%{
+    transform: translateY(-5px);
+  }
+  35%{
+    transform: translateY(0px);
+  }
+  65%{
+    transform: translateY(5px);
+  }
+  100%{
+    transform: translateY(-5px);
+  }
 }
