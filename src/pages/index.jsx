@@ -5,7 +5,6 @@ import { useRef } from "react";
 const Index = () => {
   const audioRef = useRef(null);
 
-
   const playAudio = () => {
     if (audioRef.current) {
       audioRef.current.play();
@@ -28,6 +27,7 @@ const Index = () => {
       </audio>
       <section className="relative flex gap-24 justify-center flex-col items-center h-screen">
         <video
+          muted
           autoPlay
           loop
           className="object-cover absolute h-full w-full opacity-40 "
