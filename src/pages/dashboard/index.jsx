@@ -1,11 +1,13 @@
+import Layoutd from "./layoutd";
 
 const index = () => {
   return (
     <>
-    <div className="backdrop-blur-lg bg-[#00000076]">
-      <div>
-      </div>
-    </div>
+      <Layoutd>
+        <div>
+          <div>hi</div>
+        </div>
+      </Layoutd>
     </>
   );
 };

@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: "Modren";
-  src: url("../fonts/Anurati-Regular.otf");
+  src: url("../../public/fonts/LED Dot-Matrix 400.ttf");
 }
 * {
   font-family: "Modren";
@@ -36,7 +36,7 @@ th {
 }
 td {
   padding: 15px 15px;
-  border-bottom: 2px solid rgb(255, 94, 0);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.342);
 }
 /* project showcase card ----------------------------------- */
 .showcase{

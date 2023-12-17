@@ -75,24 +75,28 @@ export default function App() {
           pauseOnHover
           theme="dark"
         />
-        <div className="grid h-60 w-full place-items-center ">
-          <h2 className="text-6xl font-extrabold text-white">PROJECT LIST</h2>
-        </div>
-        <div className="text-sm my-3 flex justify-end gap-4 px-4">
-          <button
-            onClick={() => checkin()}
-            className="bg-orange-400 py-1 px-2 rounded-sm flex items-center justify-between gap-1"
-          >
-            <i className="bx bxs-select-multiple"></i>
-            Select All
-          </button>
-          <button
-            onClick={() => del(selectedKey)}
-            className="bg-red-500 py-1 px-2 rounded-sm flex items-center justify-between gap-1"
-          >
-            <i className="bx bxs-trash-alt"></i>
-            Delete
-          </button>
+
+        <div className="text-sm flex flex-wrap justify-between items-center gap-4 pt-10 md:py-10 px-4">
+          <div className="flex gap-4 text-2xl">
+            <div className="w-min animate-spin-slower">⌔</div>
+            <h2 className=" font-extrabold text-white">PROJECT LIST</h2>
+          </div>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => checkin()}
+              className="bg-orange-400 py-1 px-2 rounded-sm flex items-center justify-between gap-1"
+            >
+              <i className="bx bxs-select-multiple"></i>
+              Select All
+            </button>
+            <button
+              onClick={() => del(selectedKey)}
+              className="bg-red-500 py-1 px-2 rounded-sm flex items-center justify-between gap-1"
+            >
+              <i className="bx bxs-trash-alt"></i>
+              Delete
+            </button>
+          </div>
         </div>
         <section className="data-table overflow-x-auto py-4   w-full">
           <table className="min-w-[1000px] w-full">

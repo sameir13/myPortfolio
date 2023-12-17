@@ -86,12 +86,14 @@ const Addblog = () => {
         className="w-[60%] m-auto max-md:w-[95%] "
         onSubmit={handleSubmit(submitForm)}
       >
-        <h2 className="text-4xl mb-10 bg-slate-700 py-4 px-2">Project Add Form</h2>
+        <h2 className="text-4xl mb-10 text-center py-4 px-2">
+          Project Add Form
+        </h2>
         <div className="space-y-8 px-2">
           <div className="col-span-full">
             <input
               type="text"
-              className="w-full bg-transparent  border py-1 px-2 rounded-sm capitalize"
+              className="w-full bg-transparent  border-b py-1 px-2 rounded-sm capitalize"
               placeholder="Title"
               {...register("title")}
             />
@@ -99,13 +101,13 @@ const Addblog = () => {
           <div className="col-span-full flex gap-2">
             <input
               type="text"
-              className="w-6/12 bg-transparent border py-1 px-2 rounded-sm capitalize"
+              className="w-6/12 bg-transparent border-b py-1 px-2 rounded-sm capitalize"
               placeholder="Subtitle"
               {...register("subtitle")}
             />
             <select
               label="Select a catagory"
-              className="w-6/12 bg-transparent border py-1 px-2 rounded-sm"
+              className="w-6/12 bg-transparent border-b py-1 px-2 rounded-sm"
               {...register("catagory")}
             >
               {catagories.map((v, i) => (
@@ -118,7 +120,7 @@ const Addblog = () => {
           <div className="col-span-full">
             <textarea
               type="text"
-              className="w-full bg-transparent  border py-1 px-2 rounded-sm capitalize"
+              className="w-full bg-transparent  border-b py-1 px-2 rounded-sm capitalize"
               placeholder="description"
               {...register("desc")}
             />
@@ -154,7 +156,7 @@ const Addblog = () => {
           <div className="col-span-full">
             <button
               type="submit"
-              className="items-center justify-center w-full px-6 py-2.5 text-center text-white duration-200 border-2 border-white rounded-sm nline-flex hover:bg-transparent hover:border-white hover:text-white focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
+              className="items-center justify-center w-full px-6 py-2.5 text-center text-white duration-200 border border-white rounded-sm line-flex hover:bg-transparent hover:border-white hover:text-white focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
             >
               Submit Project
             </button>

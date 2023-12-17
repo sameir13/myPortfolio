@@ -1,17 +1,16 @@
 import { useForm } from "react-hook-form";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import {  useRouter } from "next/router";
-// 
+import { useRouter } from "next/router";
+//
 export default function Loginform() {
-
-  const Router = useRouter()
+  const Router = useRouter();
 
   const { register, reset, handleSubmit } = useForm();
 
   const submit = async (e) => {
-    var res = await axios.post("/api/user/login",e);
+    var res = await axios.post("/api/user/login", e);
     console.log(res.data.success);
 
     if (res.data.success === true) {
@@ -39,42 +38,26 @@ export default function Loginform() {
         pauseOnHover
         theme="dark"
       />
-      <div className="relative py-3 sm:max-w-xl sm:mx-auto">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#ffdbac96] to-[#9fc5e896] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
-        <div className="relative px-4 py-5 backdrop-blur-lg bg-[#00000076] shadow-lg sm:rounded-3xl sm:p-20">
-          <div className="min-w-[400px] mx-auto">
-            <div>
-              <h1 className="text-2xl font-semibold">Welcome Back</h1>
-            </div>
-            <form onSubmit={handleSubmit(submit)}>  
-              <div className="divide-y divide-gray-200">
-                <div className="pt-8 text-base flex flex-col gap-10 sm:text-lg sm:leading-7">
-                  <div className="relative">
-                    <input
-                      {...register("username")}
-                      type="text"
-                      className=" h-10 w-full bg-transparent border-b outline-none"
-                      placeholder="Email address"
-                    />
-                  </div>
-                  <div className="relative">
-                    <input
-                      {...register("password")}
-                      type="password"
-                      className="h-10 w-full bg-transparent border-b outline-none "
-                      placeholder="Password"
-                    />
-                  </div>
-                  <div className="relative flex justify-end">
-                    <button className="btn">
-                      <input type="submit" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </form>
+      <div class="container">
+        <input id="signup_toggle" type="checkbox" />
+        <form onSubmit={handleSubmit(submit)} class="form">
+          <div class="form_front">
+            <div class="form_details">Login</div>
+            <input
+              {...register("username")}
+              type="text"
+              class="input"
+              placeholder="Username"
+            />
+            <input
+              {...register("password")}
+              type="password"
+              class="input"
+              placeholder="Password"
+            />
+            <button class="btn">Login</button>
           </div>
-        </div>
+        </form>
       </div>
     </>
   );
