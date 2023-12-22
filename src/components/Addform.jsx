@@ -7,6 +7,7 @@ import Image from "next/image";
 
 const Addblog = () => {
   const [tempImg, setTemImg] = useState("");
+  const [loading, setLoading] = useState(false);
 
   var Router = useRouter();
 
@@ -24,25 +25,38 @@ const Addblog = () => {
   //  submitform function ---------------------------------
 
   const submitForm = async (e) => {
-    const imageUrl = await UploadImageToCloudinary();
-    e.img = imageUrl;
-    if (imageUrl) {
-      var res = await fetch("/api/projects", {
-        body: JSON.stringify(e),
-        method: "POST",
-        headers: { "content-Type": "application/json" },
-      });
-
-      res = await res.json();
-
-      if (res.success) {
-        toast.success(res.message);
-        reset();
-        setTemImg(null);
+    try {
+      setLoading(true);
+      await new Promise((r) => setTimeout(r, 2000));
+      const imageUrl = await UploadImageToCloudinary();
+      e.img = imageUrl;
+      if (imageUrl) {
+        try {
+          var res = await fetch("/api/projects", {
+            body: JSON.stringify(e),
+            method: "POST",
+            headers: { "content-Type": "application/json" },
+          });
+          res = await res.json();
+          if (res.success) {
+            toast.success(res.message);
+            reset();
+            setTemImg(null);
+            setLoading(false);
+          } else {
+            toast.error(res.message);
+            setLoading(false);
+          }
+        } catch (error) {
+          console.log(error);
+        }
       } else {
-        toast.error(res.message);
+        setLoading(false);
+        toast.error("Please Upload imge");
       }
-    } else toast.error("Please Upload imge");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // cloudnairy --------------------------------------
@@ -61,7 +75,6 @@ const Addblog = () => {
         }
       );
       const jsonimg = await res.json();
-      console.log(jsonimg.secure_url);
       return jsonimg.secure_url;
     } catch (error) {
       console.log(error);
@@ -77,10 +90,8 @@ const Addblog = () => {
         newestOnTop={false}
         closeOnClick
         rtl={false}
-        pauseOnFocusLoss
         draggable
-        pauseOnHover
-        theme="dark"
+        theme="colored"
       />
       <form
         className="w-[60%] m-auto max-md:w-[95%] "
@@ -92,6 +103,7 @@ const Addblog = () => {
         <div className="space-y-8 px-2">
           <div className="col-span-full">
             <input
+              disabled={loading}
               type="text"
               className="w-full bg-transparent  border-b py-1 px-2 rounded-sm capitalize"
               placeholder="Title"
@@ -100,12 +112,14 @@ const Addblog = () => {
           </div>
           <div className="col-span-full flex gap-2">
             <input
+              disabled={loading}
               type="text"
               className="w-6/12 bg-transparent border-b py-1 px-2 rounded-sm capitalize"
               placeholder="Subtitle"
               {...register("subtitle")}
             />
             <select
+              disabled={loading}
               label="Select a catagory"
               className="w-6/12 bg-transparent border-b py-1 px-2 rounded-sm"
               {...register("catagory")}
@@ -119,6 +133,7 @@ const Addblog = () => {
           </div>
           <div className="col-span-full">
             <input
+              disabled={loading}
               type="text"
               className="w-full bg-transparent  border-b py-1 px-2 rounded-sm capitalize"
               placeholder="Project link..."
@@ -162,10 +177,20 @@ const Addblog = () => {
           )}
           <div className="col-span-full">
             <button
+              disabled={loading}
               type="submit"
-              className="items-center justify-center w-full px-6 py-2.5 text-center text-white duration-200 border border-white rounded-sm line-flex hover:bg-transparent hover:border-white hover:text-white focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
+              className="items-center justify-center w-full px-6 py-2.5 text-center text-white duration-200 border border-white rounded-sm line-flex hover:bg-transparent hover:border-white hover:text-white focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black disabled:bg-slate-700 disabled:border-none"
             >
-              Submit Project
+              {loading ? (
+                <>
+                  <div className="flex justify-center gap-4 items-center">
+                    <span className="block h-2 w-2 border-b-2 animate-spin rounded-full"></span>
+                    Submit...
+                  </div>
+                </>
+              ) : (
+                <>Submit Project</>
+              )}
             </button>
           </div>
         </div>

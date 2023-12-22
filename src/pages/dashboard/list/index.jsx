@@ -28,7 +28,7 @@ export default function App() {
 
   // ! Deleting From the List --------------------------------------
   const deleting = async (id) => {
-    var res = await axios.delete(`/api/projects/${id}`);
+    var res = await axios.delete(`/api/projects?_id=${id}`);
     if (res.data.success) {
       toast.success(res.data.message);
     }
@@ -79,7 +79,7 @@ export default function App() {
         <div className="text-sm flex flex-wrap justify-between items-center gap-4 pt-10 md:py-10 px-4">
           <div className="flex gap-4 text-2xl">
             <div className="w-min animate-spin-slower">⌔</div>
-            <h2 className=" font-extrabold text-white">PROJECT LIST</h2>
+            <h2 className=" font-extrabold text-white">PROJECTS</h2>
           </div>
           <div className="flex items-center gap-4">
             <button
