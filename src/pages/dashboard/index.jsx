@@ -5,7 +5,7 @@ const index = () => {
   return (
     <>
       <Layoutd>
-        <div className="flex">
+        <div className="flex max-md:flex-col-reverse">
           <Weather />
           <Time />
         </div>

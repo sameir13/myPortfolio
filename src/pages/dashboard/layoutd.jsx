@@ -5,7 +5,7 @@ const layoutd = ({ children }) => {
     { name: "Dashboard", link: "/dashboard", i: "bx bxs-dashboard" },
     { name: "Form", link: "/dashboard/form", i: "bx bxs-add-to-queue" },
     { name: "List ", link: "/dashboard/list", i: "bx bx-table" },
-    { name: "About", link: "/dashboard/about", i: "bx bxs-add-to-queue" },
+    { name: "About", link: "/dashboard/about", i: "bx bxs-user" },
   ];
 
   function clear() {}
@@ -31,7 +31,6 @@ const layoutd = ({ children }) => {
           {children}
         </main>
 
-        
         <div className="py-2 md:hidden backdrop-blur-xl rounded-lg w-full bg-[#111315] ">
           <ul className="text-xl flex justify-evenly items-center gap-10">
             {navlink?.map((v, i) => (

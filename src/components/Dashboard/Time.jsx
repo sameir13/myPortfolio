@@ -44,7 +44,7 @@ const Time = () => {
   }
 
   return (
-    <div className="flex relative justify-center w-full items-center gap-6 text-6xl">
+    <div className="flex relative justify-center w-full items-center gap-6 text-6xl py-10">
       <img
         width={700}
         height={400}
@@ -54,7 +54,7 @@ const Time = () => {
           "https://cdn.pixabay.com/photo/2017/03/27/13/38/canyon-2178786_1280.jpg"
         }
       />
-      <span className="relative z-50">{clockTime}</span>
+      <span className="relative z-50 font-sans">{clockTime}</span>
     </div>
   );
 };

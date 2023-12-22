@@ -87,9 +87,10 @@ const Index = () => {
         />
         <form className="h-full" onSubmit={handleSubmit(onSubmit)}>
           <div className="flex  justify-center items-center h-full">
-            <section className="w-1/2  relative">
-              <fieldset className="w-full border border-gray-500 grid grid-cols-2 gap-10 py-10 px-10 bg-[#1a1919] rounded-lg">
+            <section className="w- max-md:w-[90vw]  relative flex flex-col-reverse">
+              <fieldset className="w-full border border-gray-500 grid grid-cols-2 max-md:grid-cols-1  max-md:gap-3 gap-10 py-10 px-10 bg-[#1a1919] rounded-lg">
                 <legend>Personal Data</legend>
+
                 <div>
                   <label htmlFor="">Name :</label>
                   <input
@@ -102,6 +103,7 @@ const Index = () => {
                     defaultValue={user?.message?.Name || ""}
                   />
                 </div>
+
                 <div>
                   <label htmlFor="">Email :</label>
                   <input
@@ -114,20 +116,21 @@ const Index = () => {
                     defaultValue={user?.message?.email || ""}
                   />
                 </div>
-                <div className="flex flex-col gap-3 col-span-2">
-                  <label htmlFor="">About me :</label>
 
+                <div className="flex flex-col gap-3 md:col-span-2">
+                  <label htmlFor="">About me :</label>
                   <textarea
                     disabled={disable}
                     required
                     {...register("description")}
-                    className="bg-transparent border-b py-2 px-2  font-serif h-max disabled:border-none "
+                    className="bg-transparent border-b py-2 px-2  font-serif h-[80px] disabled:border-none "
                     placeholder="Description"
                     type="text"
                     defaultValue={user?.message?.description || ""}
                   />
                 </div>
-                <div className="w-full flex justify-end gap-4 col-span-2">
+
+                <div className="w-full flex justify-end gap-4 md:col-span-2">
                   {disable ? (
                     <button
                       className="bg-green-700 py-2 px-4 rounded-lg"
@@ -155,7 +158,7 @@ const Index = () => {
                   )}
                 </div>
               </fieldset>
-              <div className="absolute -top-16 -right-16 flex justify-center ">
+              <div className="absolute -top-16 -right-16 flex justify-center max-md:static">
                 <Image
                   width={150}
                   height={150}

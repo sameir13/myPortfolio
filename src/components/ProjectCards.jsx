@@ -44,7 +44,7 @@ export default function ProjectsCards({ setImg }) {
               <Image
                 width={80}
                 height={80}
-                className="h-[80px] w-[80px] object-cover"
+                className="h-auto w-[100px] object-cover"
                 src={v.img}
                 alt="projectimg"
               />
@@ -59,8 +59,7 @@ export default function ProjectsCards({ setImg }) {
                 target="_blank"
                 className="bg-[#323232] rounded-lg py-2 px-4"
               >
-                View
-                <i class="bx bx-right-top-arrow-circle ml-4"></i>
+                <i class="bx bx-right-top-arrow-circle"></i>
               </Link>
             </div>
           </div>

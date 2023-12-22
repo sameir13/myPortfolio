@@ -94,7 +94,7 @@ const Index = () => {
               initial={{ opacity: 0, x: -200 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 2 }}
-              className="text-gray-400"
+              className="text-gray-400 "
             >
               {me?.description}
             </motion.p>
@@ -110,7 +110,7 @@ const Index = () => {
                     initial={{ opacity: 0, y: 100 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 2, delay: 2 }}
-                    className={`${v.i} mr-4 text-3xl `}
+                    className={`${v.i} mr-4 text-3xl max-md:text-lg `}
                   ></motion.i>
                 </Link>
               ))}
@@ -119,7 +119,7 @@ const Index = () => {
               <button className="bg-slate-200 text-black rounded-lg flex-auto">
                 <i className="bx bx-upload text-xl py-3 px-4"></i>
               </button>
-              <button className="bg-slate-200 text-black rounded-lg h-full py-1 px-4 flex-auto w-[80%]">
+              <button className="bg-slate-200 max-md:text-sm text-black rounded-lg h-full py-1 px-4 flex-auto w-[80%]">
                 <span>{me?.email}</span>
                 <i className="bx bx-copy  py-3 pl-4"></i>
               </button>
@@ -128,8 +128,8 @@ const Index = () => {
         </section>
         {/* Project Section ------------------------------------------ */}
         <section>
-          <h2 className="text-3xl py-4">Projects</h2>
-          <div>
+          <h2 className="text-3xl py-4 border-b-2">Projects</h2>
+          <div className="py-4">
             <ProjectsCards />
           </div>
         </section>
