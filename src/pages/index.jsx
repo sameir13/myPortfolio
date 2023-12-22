@@ -73,6 +73,7 @@ const Index = () => {
         <section className="mb-4">
           <div className="w-full flex justify-center ">
             <Image
+              priority
               width={300}
               height={300}
               className="w-[150px] h-[150px] border-4 border-gray-700 rounded-full object-cover bg-[#0000007a]"
