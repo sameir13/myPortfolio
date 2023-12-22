@@ -38,24 +38,24 @@ export default function Loginform() {
         pauseOnHover
         theme="dark"
       />
-      <div class="container">
+      <div className="container">
         <input id="signup_toggle" type="checkbox" />
-        <form onSubmit={handleSubmit(submit)} class="form">
-          <div class="form_front">
-            <div class="form_details">Login</div>
+        <form onSubmit={handleSubmit(submit)} className="form">
+          <div className="form_front">
+            <div className="form_details">Login</div>
             <input
               {...register("username")}
               type="text"
-              class="input"
+              className="input"
               placeholder="Username"
             />
             <input
               {...register("password")}
               type="password"
-              class="input"
+              className="input"
               placeholder="Password"
             />
-            <button class="btn">Login</button>
+            <button className="btn">Login</button>
           </div>
         </form>
       </div>

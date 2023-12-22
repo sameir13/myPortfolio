@@ -24,17 +24,14 @@ const layoutd = ({ children }) => {
               ))}
             </ul>
           </div>
-          <Link
-            href={"/login"}
-            //  onClick={}
-          >
-            Logout
-          </Link>
+          <Link href={"/login"}>Logout</Link>
         </aside>
 
-        <content className="h-full overflow-auto w-full max-md:rounded-lg rounded-3xl bg-[#161C20]">
+        <main className="h-full overflow-auto w-full max-md:rounded-lg rounded-3xl bg-[#161C20]">
           {children}
-        </content>
+        </main>
+
+        
         <div className="py-2 md:hidden backdrop-blur-xl rounded-lg w-full bg-[#111315] ">
           <ul className="text-xl flex justify-evenly items-center gap-10">
             {navlink?.map((v, i) => (
