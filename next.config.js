@@ -7,7 +7,7 @@ const nextConfig = {
 
   env: {
     MONGO_URI:
-      "mongodb+srv://abc:abc@blogapp.40tpibt.mongodb.net/Portfolio?retryWrites=true&w=majority&appName=AtlasApp",
+      "mongodb+srv://abc:abc@usman.pemo5g0.mongodb.net/Portfolio?retryWrites=true&w=majority",
     SECRET_KEY: "a343344$%$s3$%$dwdq3#$3",
   },
   images: {

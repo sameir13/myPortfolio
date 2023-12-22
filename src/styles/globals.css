@@ -17,8 +17,7 @@
 }
 
 body {
-  background-color: #0b0c10;
-
+  background-color: #111111;
   backdrop-filter: blur(16px);
   color: white;
 }
@@ -39,20 +38,28 @@ td {
   border-bottom: 2px solid rgba(255, 255, 255, 0.342);
 }
 /* project showcase card ----------------------------------- */
-.showcase{
+.showcase {
   animation: hover 3s linear infinite;
 }
 @keyframes hover {
-  0%{
+  0% {
     transform: translateY(-5px);
   }
-  35%{
+  35% {
     transform: translateY(0px);
   }
-  65%{
+  65% {
     transform: translateY(5px);
   }
-  100%{
+  100% {
     transform: translateY(-5px);
   }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s;
+  -webkit-text-fill-color: #fff !important;
 }

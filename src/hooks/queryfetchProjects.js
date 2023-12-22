@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 
-// ? Fetching Blogs Data ----------------------------------------------------------/
+// ? Fetching Projects Data ----------------------------------------------------------/
 
 export const Usefetch = () => {
   return useQuery({

@@ -7,29 +7,26 @@ const projectschema = new mongoose.Schema(
     title: {
       type: String,
       required: [true, "Title is Required!"],
+      unique: true,
       trim: true,
     },
-    // desc: {
-    //   type: String,
-    //   required: [true, "Discription is Required!"],
-    // },
     catagory: {
       type: String,
       required: [true, "Catagory is Required!"],
     },
     img: {
-      type: [],
+      type: String,
       required: true,
     },
     link: {
       type: String,
-      required: true,
+      required: [true, "Link is Required!"],
       unique: true,
       trim: true,
     },
     subtitle: {
       type: String,
-      required: true,
+      required: false,
       trim: true,
     },
   },

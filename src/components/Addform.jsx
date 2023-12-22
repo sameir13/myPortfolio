@@ -1,6 +1,6 @@
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -122,20 +122,13 @@ const Addblog = () => {
               type="text"
               className="w-full bg-transparent  border-b py-1 px-2 rounded-sm capitalize"
               placeholder="Project link..."
-              {...register("desc")}
+              {...register("link")}
             />
           </div>
-          <div className="col-span-full">
-            <textarea
-              type="text"
-              className="w-full bg-transparent  border-b py-1 px-2 rounded-sm capitalize"
-              placeholder="description"
-              {...register("desc")}
-            />
-          </div>
+
           {tempImg ? (
             <div className="flex">
-              <div className="w-1/2 relative border aspect-video">
+              <div className="w-full relative border aspect-video">
                 <Image
                   width={700}
                   height={700}
@@ -147,22 +140,6 @@ const Addblog = () => {
                   onClick={() => setTemImg(null)}
                   className="bx bx-x absolute top-2 right-2 bg-[#00000083] p-2 rounded-full"
                 ></i>
-              </div>
-              <div className="rounded-sm  p-5 text-center flex justify-center items-center bg-[#6553458e] w-1/2">
-                <label className="block mb-3 font-medium" htmlFor="image">
-                  <div>
-                    <i className="bx bx-cloud-upload"></i>
-                  </div>
-                  <div>Upload Image</div>
-                </label>
-                <input
-                  type="file"
-                  hidden
-                  id="image"
-                  onChange={(e) => {
-                    setTemImg(e.target.files[0]);
-                  }}
-                />
               </div>
             </div>
           ) : (

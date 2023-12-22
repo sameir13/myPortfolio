@@ -10,7 +10,7 @@ export default async function handler(req, res) {
       try {
         // : Creating Project -----------------------------------/
 
-        const body = await Model.create({ ...req.body, slug });
+        const body = await Model.create({ ...req.body });
 
         res.status(201).json({
           success: true,

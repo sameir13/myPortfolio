@@ -1,4 +1,3 @@
-import "@/styles/404.css";
 import "@/styles/globals.css";
 import "@/styles/form.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

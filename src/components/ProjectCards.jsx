@@ -1,10 +1,9 @@
 import { Usefetch } from "@/hooks/queryfetchProjects";
-import Image from "next/image"
-import { useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function ProjectsCards({ setImg }) {
   var loadskeleton = [1, 2, 3, 4, 5];
-  const audioRef = useRef(null);
 
   const { isLoading, error, data } = Usefetch();
   if (isLoading) {
@@ -33,43 +32,37 @@ export default function ProjectsCards({ setImg }) {
       </div>
     );
 
-  const playAudio = () => {
-    if (audioRef.current) {
-    
-      audioRef.current.play();
-    }
-  };
   return (
     <>
-      <audio id="audio" ref={audioRef} className="relative -z-50">
-        <source src="./bg.mp3" />
-      </audio>
-      <div className="flex flex-nowrap md:flex-col overflow-auto gap-6 ">
+      <div className="flex flex-col gap-4">
         {data?.message?.map((v, i) => (
-          //*  Card -----------------------------------------------------//
           <div
-            // href={`/blogs/${v.slug}`}
-            onClick={() => {setImg(v),playAudio()}}
             key={i}
-            className="group duration-1000   overflow-hidden rounded-full"
+            className="bg-[#161616] flex justify-center max-h-[140px] aspect-video rounded-2xl px-6"
           >
-            {/*//? Card Image ---------------------------------------------- */}
-            <div className="relative  bg-[#1E1F29] p-4 md:max-w-[16rem]  rounded-full  flex flex-col justify-center items-center ">
+            <div className="grid place-content-center">
               <Image
-                width={700}
-                height={700}
-                alt="Card background"
-                className="object-cover  aspect-square rounded-full"
+                width={80}
+                height={80}
+                className="h-[80px] w-[80px] object-cover"
                 src={v.img}
+                alt="projectimg"
               />
-              <div className="absolute -bottom-[0%] z-10 pt-4 bg-[#000000ab] rounded w-full text-center h-[25%]">
-                <h4 className=" font-bold text-clip line-clamp-1 leading-tight capitalize">
-                  {v.title}
-                </h4>
-              </div>
             </div>
-
-            {/*//? --------------------------------------------------------- */}
+            <div className="flex justify-between items-center w-full pl-6">
+              <div>
+                <h2>{v.title}</h2>
+                <p>{v.subtitle}</p>
+              </div>
+              <Link
+                href={v.link}
+                target="_blank"
+                className="bg-[#323232] rounded-lg py-2 px-4"
+              >
+                View
+                <i class="bx bx-right-top-arrow-circle ml-4"></i>
+              </Link>
+            </div>
           </div>
         ))}
       </div>
