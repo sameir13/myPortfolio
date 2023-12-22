@@ -86,7 +86,7 @@ const Index = () => {
               initial={{ opacity: 0, x: -200 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 1 }}
-              className="text-4xl py-4"
+              className="text-4xl py-4 font-[Modren]"
             >
               {me?.Name}
             </motion.h2>
@@ -128,7 +128,7 @@ const Index = () => {
         </section>
         {/* Project Section ------------------------------------------ */}
         <section>
-          <h2 className="text-3xl py-4 border-b-2">Projects</h2>
+          <h2 className="text-3xl py-4 border-b-2 font-[Modren]">Projects</h2>
           <div className="py-4">
             <ProjectsCards />
           </div>

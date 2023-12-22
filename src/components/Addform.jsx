@@ -82,7 +82,7 @@ const Addblog = () => {
   };
 
   return (
-    <section className="w-full ">
+    <section className="w-full">
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -94,18 +94,19 @@ const Addblog = () => {
         theme="colored"
       />
       <form
-        className="w-[60%] m-auto max-md:w-[95%] "
+        className="w-[60%] m-auto max-md:w-[95%] bg-[#101315] px-4 py-6 rounded-lg"
         onSubmit={handleSubmit(submitForm)}
       >
-        <h2 className="text-4xl mb-10 text-center py-4 px-2">
-          Project Add Form
-        </h2>
+        <div className="flex justify-start items-center gap-4 mb-10 py-4 px-2">
+          <div className="h-4 w-4 bg-slate-500 animate-pulse rounded-full"></div>
+          <h2 className="text-4xl ">Project Form</h2>
+        </div>
         <div className="space-y-8 px-2">
           <div className="col-span-full">
             <input
               disabled={loading}
               type="text"
-              className="w-full bg-transparent  border-b py-1 px-2 rounded-sm capitalize"
+              className="w-full bg-transparent  border-b py-1 px-2 rounded-sm capitalize font-serif focus:outline-none"
               placeholder="Title"
               {...register("title")}
             />
@@ -114,14 +115,14 @@ const Addblog = () => {
             <input
               disabled={loading}
               type="text"
-              className="w-6/12 bg-transparent border-b py-1 px-2 rounded-sm capitalize"
+              className="w-6/12 bg-transparent border-b py-1 px-2 rounded-sm capitalize font-serif focus:outline-none"
               placeholder="Subtitle"
               {...register("subtitle")}
             />
             <select
               disabled={loading}
               label="Select a catagory"
-              className="w-6/12 bg-transparent border-b py-1 px-2 rounded-sm"
+              className="w-6/12 bg-transparent border-b py-1 px-2 rounded-sm font-serif focus:outline-none"
               {...register("catagory")}
             >
               {catagories.map((v, i) => (
@@ -135,7 +136,7 @@ const Addblog = () => {
             <input
               disabled={loading}
               type="text"
-              className="w-full bg-transparent  border-b py-1 px-2 rounded-sm capitalize"
+              className="w-full bg-transparent  border-b py-1 px-2 rounded-sm capitalize font-serif focus:outline-none"
               placeholder="Project link..."
               {...register("link")}
             />
@@ -158,12 +159,12 @@ const Addblog = () => {
               </div>
             </div>
           ) : (
-            <div className="rounded-sm  p-5 text-center bg-[#6553458e]">
+            <div className="p-5 text-center border border-gray-600 rounded-md">
               <label className="block mb-3 font-medium " htmlFor="image">
                 <div>
                   <i className="bx bx-cloud-upload"></i>
                 </div>
-                <div>Upload Logo</div>
+                <div className="font-serif">Upload Logo</div>
               </label>
               <input
                 type="file"
@@ -179,7 +180,7 @@ const Addblog = () => {
             <button
               disabled={loading}
               type="submit"
-              className="items-center justify-center w-full px-6 py-2.5 text-center text-white duration-200 border border-white rounded-sm line-flex hover:bg-transparent hover:border-white hover:text-white focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black disabled:bg-slate-700 disabled:border-none"
+              className="items-center justify-center w-full px-6 py-2.5 font-serif text-center text-white duration-200 bg-[#161C20] rounded-sm line-flex hover:bg-[#1f282d] hover:border-white hover:text-white focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black disabled:bg-slate-700 disabled:border-none"
             >
               {loading ? (
                 <>

@@ -5,7 +5,7 @@ const index = () => {
   return (
     <>
       <Layoutd>
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center h-full">
           <Addform />
         </div>
       </Layoutd>

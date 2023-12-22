@@ -79,7 +79,7 @@ export default function App() {
         <div className="text-sm flex flex-wrap justify-between items-center gap-4 pt-10 md:py-10 px-4">
           <div className="flex gap-4 text-2xl">
             <div className="w-min animate-spin-slower">⌔</div>
-            <h2 className=" font-extrabold text-white">PROJECTS</h2>
+            <h2 className=" font-extrabold text-white font-[Modren]">PROJECTS</h2>
           </div>
           <div className="flex items-center gap-4">
             <button
@@ -98,9 +98,11 @@ export default function App() {
             </button>
           </div>
         </div>
-        <section className="data-table overflow-x-auto py-4   w-full">
+
+        {/* table ------------------------------------------------ */}
+        <section className="data-table overflow-x-auto py-4 w-full">
           <table className="min-w-[1000px] w-full">
-            <thead className="bg-slate-500">
+            <thead className="bg-[#202325]">
               <tr>
                 <th className="w-1">Action</th>
                 <th className="text-left px-4">Title</th>
@@ -109,7 +111,7 @@ export default function App() {
             </thead>
             <tbody items={data.message}>
               {data?.message?.map((v, i) => (
-                <tr key={i}>
+                <tr className="bg-[#2f3336]" key={i}>
                   <td>
                     <input
                       type="checkbox"
@@ -135,6 +137,7 @@ export default function App() {
             </tbody>
           </table>
         </section>
+        {/* table ------------------------------------------------ */}
       </div>
     </Layoutd>
   );

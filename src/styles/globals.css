@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,7 +8,7 @@
   src: url("../../public/fonts/LED Dot-Matrix 400.ttf");
 }
 * {
-  font-family: "Modren";
+  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -21,41 +22,16 @@ body {
   backdrop-filter: blur(16px);
   color: white;
 }
-
-/* text shadow --------------------------- */
-.text-shadow :hover {
-  text-shadow:
-    3px 3px 20px rgb(255, 255, 255),
-    -2px 1px 30px rgb(255, 255, 255);
-}
 /* table ----------------------------------- */
-
 th {
-  padding: 10px 15px;
+  padding: 15px 15px;
+  border-bottom: 8px solid #161c20;
 }
 td {
   padding: 15px 15px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.342);
+  border-bottom: 8px solid #161c20;
 }
-/* project showcase card ----------------------------------- */
-.showcase {
-  animation: hover 3s linear infinite;
-}
-@keyframes hover {
-  0% {
-    transform: translateY(-5px);
-  }
-  35% {
-    transform: translateY(0px);
-  }
-  65% {
-    transform: translateY(5px);
-  }
-  100% {
-    transform: translateY(-5px);
-  }
-}
-
+/* input auto fill ----------------------------------- */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
