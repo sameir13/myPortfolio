@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 export const Usefetch = () => {
   return useQuery({
     queryKey: ["repoData"],
-    queryFn: async () => await fetch("https://scriptwithsameer.vercel.app/api/projects").then((res) => res.json()),
+    queryFn: async () => await fetch("/api/projects").then((res) => res.json()),
     refetchInterval: 5000,
   });
 };

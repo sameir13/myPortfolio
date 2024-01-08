@@ -5,6 +5,9 @@ import Link from "next/link";
 export default function ProjectsCards({ setImg }) {
   var loadskeleton = [1, 2, 3, 4, 5];
 
+
+    
+
   const { isLoading, error, data } = Usefetch();
   if (isLoading) {
     return (
@@ -21,6 +24,9 @@ export default function ProjectsCards({ setImg }) {
       </div>
     );
   }
+
+
+
 
   if (error)
     return (
