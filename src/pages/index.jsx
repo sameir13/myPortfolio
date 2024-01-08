@@ -37,15 +37,15 @@ const Index = () => {
 
   const social = [
     {
-      herf: "www.linkedin.com/in/usman-ashfi",
+      herf: "https://www.linkedin.com/in/sameer-adil-85387025a/",
       i: "bx bxl-linkedin-square group-hover:text-blue-500",
     },
     {
-      herf: "https://www.upwork.com/freelancers/~015a6292fcb5cb75e0?viewMode=1",
+      herf: "https://www.upwork.com/freelancers/~018186fad7e9f76803",
       i: "bx bxl-upwork group-hover:text-green-500",
     },
     {
-      herf: "https://github.com/Usman-Ashfi",
+      herf: "https://github.com/sameir13",
       i: "bx bxl-github group-hover:text-white",
     },
     {
@@ -114,7 +114,7 @@ const Index = () => {
                     width={300}
                     height={300}
                     className="w-[150px] h-[150px] border-4 border-gray-700 rounded-full object-cover bg-[#0000007a]"
-                    src="/me.png"
+                    src="/sameer.webp"
                     alt=""
                   />
                 </div>
@@ -150,7 +150,8 @@ const Index = () => {
                       <i className="bx bx-upload text-xl py-3 px-4"></i>
                     </button>
                     <button className="bg-slate-200 max-md:text-sm text-black rounded-lg h-full py-1 px-4 flex-auto w-[80%]">
-                      <span>{me?.email}</span>
+                      {/* <span>{me?.email}</span> */}
+                      <span>sameeraadil.x@gmail.com</span>
                       <i className="bx bx-copy  py-3 pl-4"></i>
                     </button>
                   </div>
@@ -168,7 +169,12 @@ const Index = () => {
                     transition={{ duration: 1, delay: 2 }}
                     className="text-gray-400 "
                   >
-                    {me?.description}
+                    Specialize in crafting dynamic user interfaces with React
+                    JS, React Native, and Tailwind CSS. Proficient in Node JS,
+                    Express JS, and MongoDB for robust back-end solutions. I use
+                    Rest APIs, Next.JS, and the Context API for seamless,
+                    efficient development. Let's build something awesome! 💻✨
+                    {/* {me?.description} */}
                   </motion.p>
                 </div>
               </section>

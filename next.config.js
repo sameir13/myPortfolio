@@ -6,7 +6,7 @@ const nextConfig = {
   // ? Enviornament Variable -----------------------------------------/
   env: {
     MONGO_URI:
-      "mongodb+srv://abc:abc@usman.pemo5g0.mongodb.net/Portfolio?retryWrites=true&w=majority",
+      "mongodb+srv://abc:abc@cluster0.x0yfmvl.mongodb.net/Portfolio?retryWrites=true&w=majority",
     SECRET_KEY: "a343344$%$s3$%$dwdq3#$3",
   },
   images: {
