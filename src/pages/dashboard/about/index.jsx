@@ -14,7 +14,7 @@ const Index = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "/api/about?_id=6584c38162d394616ef0bc8d"
+          "/api/about?_id=659bd7f444e8320ca55b97fb"
         );
         setUser(response.data);
       } catch (error) {
@@ -23,6 +23,8 @@ const Index = () => {
     };
     fetchData();
   }, []);
+
+  console.log(user)
 
   const {
     register,

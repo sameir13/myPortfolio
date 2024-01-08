@@ -7,7 +7,9 @@ export const Usefetchme = () => {
   return useQuery({
     queryKey: ["mydata"],
     queryFn: async () =>
-      await axios.get("/api/about?_id=659bb1e400af39a4b4d5723e"),
+      await axios.get("/api/about?_id=659bd7f444e8320ca55b97fb"),
     refetchInterval: 5000,
   });
 };
+
+
