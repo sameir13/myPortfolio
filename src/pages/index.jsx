@@ -150,7 +150,7 @@ const Index = () => {
                       <i className="bx bx-upload text-xl py-3 px-4"></i>
                     </button>
                     <button className="bg-slate-200 max-md:text-sm text-black rounded-lg h-full py-1 px-4 flex-auto w-[80%]">
-                      {/* <span>{me?.email}</span> */}
+                 
                       <span>sameeraadil.x@gmail.com</span>
                       <i className="bx bx-copy  py-3 pl-4"></i>
                     </button>
@@ -173,8 +173,8 @@ const Index = () => {
                     JS, React Native, and Tailwind CSS. Proficient in Node JS,
                     Express JS, and MongoDB for robust back-end solutions. I use
                     Rest APIs, Next.JS, and the Context API for seamless,
-                    efficient development. Let's build something awesome! 💻✨
-                    {/* {me?.description} */}
+                    efficient development. Lets build something awesome
+                    
                   </motion.p>
                 </div>
               </section>

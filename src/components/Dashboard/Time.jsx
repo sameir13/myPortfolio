@@ -45,7 +45,7 @@ const Time = () => {
 
   return (
     <div className="flex relative justify-center w-full items-center gap-6 text-6xl py-10">
-      <img
+      <Image
         width={700}
         height={400}
         alt="clock bg"
