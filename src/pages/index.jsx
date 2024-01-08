@@ -16,7 +16,7 @@ const Loading = () => {
           <div className="control maximize"></div>
         </div>
       </div>
-      <div className="text">Loading...</div>
+      <div className="text">Loading..</div>
     </div>
   );
 };
@@ -174,7 +174,6 @@ const Index = () => {
                     Express JS, and MongoDB for robust back-end solutions. I use
                     Rest APIs, Next.JS, and the Context API for seamless,
                     efficient development. Lets build something awesome
-                    
                   </motion.p>
                 </div>
               </section>
